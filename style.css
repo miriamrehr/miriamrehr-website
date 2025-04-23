@@ -1,16 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;700&display=swap');
+
+:root {
+  --dark-rose: #795C5F;
+  --golden-olive: #A69658;
+  --warm-sand: #D9B26F;
+  --deep-navy: #031926;
+  --light-pink: #FBEFF8;
+}
+
 body {
-    background-color: #D8D4F2;          /* Lys lilla baggrund */
-    color: #332E3C;                     /* Mørk tekstfarve */
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 100px;
-  }
-  
-  h1 {
-    font-size: 3rem;
-  }
-  
-  p {
-    font-size: 1.5rem;
-  }
-  
+  background-color: var(--light-pink);
+  color: var(--deep-navy);
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+  padding: 100px;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--dark-rose);
+  font-weight: 700; /* Fed skrift */
+}
+
+p {
+  font-size: 1.5rem;
+  color: var(--deep-navy);
+  font-weight: 300; /* Let skrift */
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: var(--golden-olive);
+  color: var(--deep-navy);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 400;
+}
+
+button:hover {
+  background-color: var(--warm-sand);
+}
+
