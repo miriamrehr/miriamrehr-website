@@ -1,0 +1,16 @@
+body {
+    background-color: #D8D4F2;          /* Lys lilla baggrund */
+    color: #332E3C;                     /* Mørk tekstfarve */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 100px;
+  }
+  
+  h1 {
+    font-size: 3rem;
+  }
+  
+  p {
+    font-size: 1.5rem;
+  }
+  
