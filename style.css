@@ -467,6 +467,104 @@ p {
   box-shadow: 0 4px 24px 0 rgba(247,201,211,0.08);
 }
 
+/* ---- UNIVERSAL MINIMAL STYLES FOR ALL PAGES ---- */
+.index-page section,
+.about-header,
+.projects-grid,
+.graphic-design-header,
+.graphic-design-intro,
+.ux-design-section,
+.illustration-artworks {
+  background: #F5EEE6;
+  border-radius: 32px;
+  box-shadow: 0 4px 24px 0 rgba(60, 60, 90, 0.08);
+  padding: 60px 50px;
+  margin: 40px 0;
+}
+
+.index-page h1,
+.index-page h2,
+.index-page h3,
+.about-header h1,
+.projects-grid h1,
+.graphic-design-header h1,
+.graphic-design-header h2,
+.graphic-design-header h3,
+.graphic-design-intro h1,
+.graphic-design-intro h2,
+.graphic-design-intro h3,
+.ux-design-section h1,
+.ux-design-section h2,
+.ux-design-section h3,
+.illustration-artworks h1,
+.illustration-artworks h2,
+.illustration-artworks h3 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  color: #111;
+  margin-top: 0;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.index-page p,
+.about-header p,
+.projects-grid p,
+.graphic-design-header p,
+.graphic-design-intro p,
+.ux-design-section p,
+.illustration-artworks p {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 1.1rem;
+  color: #444;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+
+.about-header-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.about-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 4px 24px 0 rgba(60, 60, 90, 0.08);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  background: #F5EEE6;
+  border-radius: 32px;
+  box-shadow: 0 4px 24px 0 rgba(60, 60, 90, 0.08);
+  padding: 60px 50px;
+}
+
+.project-item {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 2px 12px 0 rgba(60, 60, 90, 0.06);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-item img {
+  border-radius: 16px;
+  box-shadow: 0 2px 12px 0 rgba(60, 60, 90, 0.06);
+  margin-bottom: 16px;
+}
+
+.divider {
+  margin: 40px 0;
+}
+
 @media (max-width: 900px) {
   .index-page .hero {
     flex-direction: column;
@@ -488,5 +586,27 @@ p {
   .index-page .navbar ul {
     flex-direction: row;
     gap: 12px;
+  }
+  .index-page section,
+  .about-header,
+  .projects-grid,
+  .graphic-design-header,
+  .graphic-design-intro,
+  .ux-design-section,
+  .illustration-artworks {
+    padding: 30px 10px;
+    border-radius: 18px;
+  }
+  .about-header-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .about-image {
+    width: 120px;
+    height: 120px;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 }
