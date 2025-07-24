@@ -275,3 +275,15 @@ p,
     gap: 18px;
   }
 }
+
+@media (min-width: 900px) {
+  body > section,
+  body > .about-header,
+  body > .projects-grid,
+  body > .graphic-design-header,
+  body > .graphic-design-intro,
+  body > .ux-design-section,
+  body > .illustration-artworks {
+    margin-left: 240px;
+  }
+}
