@@ -26,7 +26,7 @@
   <div class="divider"></div>
 
   <section>
-    <h1>Let's Collaborate</h1>
+    <h2>Let's Collaborate</h2>
     <p>Open for freelance work and creative collaborations!</p>
   </section>
 
@@ -40,8 +40,8 @@
       });
     }, { threshold: 0.3 });
 
-    document.querySelectorAll('h1').forEach(h1 => {
-      observer.observe(h1);
+    document.querySelectorAll('h1, h2').forEach(header => {
+      observer.observe(header);
     });
 
     let currentPage = window.location.pathname.split("/").pop();

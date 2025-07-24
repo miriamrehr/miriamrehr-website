@@ -16,7 +16,7 @@
     </ul>
   </nav>
 
-  <section class="about-header">
+  <section>
     <div class="about-header-content">
       <img src="billeder/portrait3.jpg" alt="portrait3" class="about-image">
       <h1>About</h1>
@@ -27,7 +27,7 @@
   <div class="divider"></div>
 
   <section>
-    <h1>More About Me</h1>
+    <h2>More About Me</h2>
     <p>Details about my background, inspiration, and creative process.</p>
   </section>
 
@@ -42,8 +42,8 @@
       });
     }, { threshold: 0.3 });
 
-    document.querySelectorAll('h1').forEach(h1 => {
-      observer.observe(h1);
+    document.querySelectorAll('h1, h2').forEach(header => {
+      observer.observe(header);
     });
 
     let currentPage = window.location.pathname.split("/").pop();

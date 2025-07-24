@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="index-page graphic-design-page">
-  <!-- ---- NAVIGATION ---- -->
   <nav class="navbar">
     <ul>
       <li><a href="index.html" class="index">Home</a></li>
@@ -17,62 +16,53 @@
     </ul>
   </nav>
 
-  <!-- ---- GRAPHIC DESIGN HEADER ---- -->
-  <section class="graphic-design-header">
-    <h1>Graphics and UX/UI</h1>
-    <img src="billeder/pencil.png" alt="Pencil illustration" class="pencil-illustration">
-  </section>
-
-  <!-- ---- KATEGORIER & BESKRIVELSE ---- -->
-  <section class="graphic-design-intro">
-    <div class="design-categories">
-      <p class="category-item"><a href="#illustrations">Illustrations</a></p>
-      <p class="category-item"><a href="#ux-design">UX Design</a></p>
-      <p class="category-item"><a href="#graphic-design-section">Graphic Design</a></p>
+  <section>
+    <div class="graphic-design-header">
+      <h1>Graphics and UX/UI</h1>
+      <img src="billeder/pencil.png" alt="Pencil illustration" class="pencil-illustration">
     </div>
-
-    <p class="section-description">
-      Explore my illustration work, UX design and graphic design.
-    </p>
-    <div class="divider"></div>
+    <div class="graphic-design-intro">
+      <div class="design-categories">
+        <p class="category-item"><a href="#illustrations">Illustrations</a></p>
+        <p class="category-item"><a href="#ux-design">UX Design</a></p>
+        <p class="category-item"><a href="#graphic-design-section">Graphic Design</a></p>
+      </div>
+      <p class="section-description">
+        Explore my illustration work, UX design and graphic design.
+      </p>
+      <div class="divider"></div>
+    </div>
   </section>
 
-  <!-- ---- ILLUSTRATIONS SECTION ---- -->
-<section id="illustrations" class="illustration-elements">
-  <h2>Illustrations</h2>
-  <p class="section-subtitle">Illustrations for The Red Van</p>
-  
-  <div class="illustration-grid">
-    <img src="billeder/Valgt__SoMe.png" alt="Element 1">
-    <img src="billeder/Valgt_Glidecreme.png" alt="Element 2">
-    <img src="billeder/Valgt_Konfliktløsning 1.png" alt="Element 3">
-    <img src="billeder/Valgt_Nattevagter_II.png" alt="Element 4">
-    <img src="billeder/Valgt_Rådgivning.png" alt="Element 5">
-  </div>
+  <section id="illustrations" class="illustration-elements">
+    <h2>Illustrations</h2>
+    <p class="section-subtitle">Illustrations for The Red Van</p>
+    <div class="illustration-grid">
+      <img src="billeder/Valgt__SoMe.png" alt="Element 1">
+      <img src="billeder/Valgt_Glidecreme.png" alt="Element 2">
+      <img src="billeder/Valgt_Konfliktløsning 1.png" alt="Element 3">
+      <img src="billeder/Valgt_Nattevagter_II.png" alt="Element 4">
+      <img src="billeder/Valgt_Rådgivning.png" alt="Element 5">
+    </div>
+    <h3 class="coloringbook-subtitle">Coloring Book Illustrations</h3>
+    <div class="artwork-grid">
+      <img src="billeder/CB1.png" alt="Artwork 1">
+      <img src="billeder/CB2.png" alt="Artwork 2">
+      <img src="billeder/CB3.png" alt="Artwork 3">
+      <img src="billeder/CB4.png" alt="Artwork 4">
+      <img src="billeder/CB5.png" alt="Artwork 5">
+      <img src="billeder/CB6.png" alt="Artwork 6">
+      <img src="billeder/CB7.png" alt="Artwork 7">
+      <img src="billeder/CB8.png" alt="Artwork 8">
+    </div>
+  </section>
 
-  <!-- Coloring Book Illustrations (under Illustration Elements) -->
-  <h3 class="coloringbook-subtitle">Coloring Book Illustrations</h3>
-  
-  <div class="artwork-grid">
-    <img src="billeder/CB1.png" alt="Artwork 1">
-    <img src="billeder/CB2.png" alt="Artwork 2">
-    <img src="billeder/CB3.png" alt="Artwork 3">
-    <img src="billeder/CB4.png" alt="Artwork 4">
-    <img src="billeder/CB5.png" alt="Artwork 5">
-    <img src="billeder/CB6.png" alt="Artwork 6">
-    <img src="billeder/CB7.png" alt="Artwork 7">
-    <img src="billeder/CB8.png" alt="Artwork 8">
-  </div>
-</section>
-
-  <!-- ---- UX DESIGN SECTION ---- -->
   <section id="ux-design" class="ux-design-section">
     <h2>UX Design</h2>
     <p class="section-subtitle">Concepts and wireframes</p>
     <!-- Her kan du tilføje dine UX billeder -->
   </section>
 
-  <!-- ---- GRAPHIC DESIGN / ARTWORKS SECTION ---- -->
   <section id="graphic-design-section" class="illustration-artworks">
     <h2>Artworks</h2>
     <p class="section-subtitle">Digital Artworks</p>
@@ -85,7 +75,6 @@
     </div>
   </section>
 
-  <!-- ---- FADE-IN ANIMATION & ACTIVE LINK SCRIPT ---- -->
   <script>
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
