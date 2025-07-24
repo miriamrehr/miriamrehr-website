@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact - Miriam Rehr</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html" class="index">Home</a></li>
+      <li><a href="about.html" class="about">About</a></li>
+      <li><a href="projects.html" class="projects">Projects</a></li>
+      <li><a href="graphic-design.html" class="graphic-design">Graphic Design</a></li>
+      <li><a href="contact.html" class="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <h1>Contact</h1>
+    <p>Feel free to reach out! You can contact me at:</p>
+    <p><strong>Email:</strong> your.email@example.com</p>
+    <p><strong>Instagram:</strong> @yourhandle</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h1>Let's Collaborate</h1>
+    <p>Open for freelance work and creative collaborations!</p>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('h1').forEach(h1 => {
+      observer.observe(h1);
+    });
+
+    let currentPage = window.location.pathname.split("/").pop();
+    if (currentPage === "" || currentPage === "index.html") {
+      currentPage = "index";
+    } else {
+      currentPage = currentPage.replace(".html", "");
+    }
+    const activeLink = document.querySelector(`.navbar a.${currentPage}`);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+  </script>
+</body>
+</html>

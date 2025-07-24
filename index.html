@@ -1,14 +1,59 @@
 <!DOCTYPE html>
-<html lang="da">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Miriam Rehr</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Miriam Rehr</h1>
-  <p>Project Portfolio</p>
+  <!-- ---- NAVIGATION ---- -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html" class="index">Home</a></li>
+      <li><a href="about.html" class="about">About</a></li>
+      <li><a href="projects.html" class="projects">Projects</a></li>
+      <li><a href="graphic-design.html" class="graphic-design">Graphics & UX/UI</a></li>
+      <li><a href="contact.html" class="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ---- HERO SECTION ---- -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Miriam Rehr</h1>
+      <p class="hero-subtitle">Discover my coding projects, graphic design, and illustrations.</p>
+    </div>
+    <div class="hero-image">
+      <img src="billeder/portrait2.jpg" alt="Portrait of Miriam Rehr" class="front-image">
+    </div>
+  </section>
+
+  <!-- ---- FADE-IN ANIMATION SCRIPT ---- -->
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('h1, h2').forEach(header => {
+      observer.observe(header);
+    });
+
+    // ---- ACTIVE LINK HIGHLIGHT IN MENU ----
+    let currentPage = window.location.pathname.split("/").pop();
+    if (currentPage === "" || currentPage === "index.html") {
+      currentPage = "index";
+    } else {
+      currentPage = currentPage.replace(".html", "");
+    }
+    const activeLink = document.querySelector(`.navbar a.${currentPage}`);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+  </script>
 </body>
 </html>
-
-
