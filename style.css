@@ -359,6 +359,10 @@ p,
   color: #4CAF50;
 }
 
+.scattered-text.coding::first-letter {
+  color: #4CAF50;
+}
+
 .hero-images {
   position: absolute;
   top: 0;
@@ -375,7 +379,7 @@ p,
 }
 
 .top-image {
-  width: 400px;
+  width: 800px;
   height: 120px;
   top: 5%;
   right: 5%;
