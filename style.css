@@ -292,10 +292,11 @@ p,
 }
 
 /* Project header styling - only for UX design page */
-.ux-ui.active ~ section h2:not(.scattered-text) {
+.ux-ui.active ~ section h2 {
   font-weight: 400 !important;
   font-size: 2rem !important;
   color: #111 !important;
+  margin-left: 100px;
 }
 
 /* ---- GRAPHIC DESIGN PAGE ACCENT ---- */
@@ -408,7 +409,7 @@ p,
 .scattered-text {
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 8rem !important;
-  font-weight: 700 !important;
+  font-weight: 700;
   color: #111;
   margin: 0;
   line-height: 0.9;
@@ -417,12 +418,6 @@ p,
   opacity: 0;
   transform: translateX(-100px);
   transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-/* Ensure hero text stays large on home page */
-.index-page .scattered-text {
-  font-size: 8rem !important;
-  font-weight: 700 !important;
 }
 
 .scattered-text.coding {
