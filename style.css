@@ -79,6 +79,8 @@ section,
   padding: 60px 50px;
   margin-top: 40px;
   margin-bottom: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 h1, h2, h3,
@@ -208,6 +210,44 @@ p,
   text-decoration: none;
   color: inherit;
   display: block;
+}
+
+/* Project Showcase Styles */
+.project-showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin: 40px 0;
+}
+
+.project-image {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.showcase-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+.image-caption {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  margin: 0;
+  font-style: italic;
 }
 
 /* ---- GRAPHIC DESIGN PAGE ACCENT ---- */
