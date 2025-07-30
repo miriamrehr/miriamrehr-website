@@ -250,6 +250,40 @@ p,
   font-style: italic;
 }
 
+/* Compact Project Showcase Styles */
+.project-showcase-compact {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 30px 0;
+}
+
+.project-image-compact {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.showcase-img-compact {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-description {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.project-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin: 0;
+}
+
 /* ---- GRAPHIC DESIGN PAGE ACCENT ---- */
 .graphic-design-page a,
 .graphic-design-page .category-item {
