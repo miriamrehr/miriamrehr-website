@@ -5,12 +5,13 @@
 /* ========================================
    IMPORTS & VARIABLES
    ======================================== */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&family=Inter:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@300;400;500;600&family=Inter:wght@400;500&display=swap');
 
 :root {
   /* FONTS */
   --font-primary: 'Inter', Arial, sans-serif;    /* Body text, navigation, paragraphs */
-  --font-heading: 'Source Sans Pro', Arial, sans-serif; /* Headings, titles - extremely clean and minimal */
+  --font-heading: 'Manrope', Arial, sans-serif; /* Headings, titles - modern and clean */
+  --font-name: 'DM Sans', Arial, sans-serif;    /* Name in navigation - modern and clean */
   
   /* COLORS */
   --dark-rose: #8B6F74;
@@ -46,9 +47,9 @@ body.index-page {
   top: 0;
   left: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 30px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 30px 20px 0 20px;
   box-shadow: none;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
@@ -65,7 +66,7 @@ body.index-page {
 .navbar a {
   text-decoration: none;
   color: #888;
-  font-family: var(--font-primary);
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -101,6 +102,11 @@ section,
   margin-bottom: 40px;
   margin-left: 60px;
   margin-right: 40px;
+}
+
+/* Adjust top margin for UX page to account for horizontal nav */
+.ux-content {
+  margin-top: 200px !important; /* Extra space for the horizontal navigation (100px nav + 100px spacing) */
 }
 
 /* Typography for all pages */
@@ -179,13 +185,15 @@ p,
 }
 
 .nav-name {
-  font-family: var(--font-heading);
+  font-family: var(--font-name);
   font-size: 2.5rem;
   font-weight: 700;
   color: #111;
   margin: 0;
   line-height: 1.1;
   letter-spacing: -0.02em;
+  text-transform: lowercase;
+  text-align: left;
 }
 
 .index-page .navbar ul {
@@ -199,7 +207,7 @@ p,
 .index-page .navbar a {
   text-decoration: none;
   color: #111;
-  font-family: var(--font-primary);
+  font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -334,6 +342,44 @@ p,
 /* ========================================
    UX DESIGN PAGE - SPECIFIC STYLES
    ======================================== */
+/* UX page horizontal navigation */
+.ux-page-nav {
+  position: fixed;
+  top: 100px; /* Moved lower down from the top */
+  left: 280px; /* Position after the main navbar */
+  right: 0;
+  background: #F5EEE6;
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 100;
+  padding: 20px 40px;
+}
+
+.ux-page-nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 40px;
+  justify-content: flex-start;
+}
+
+.ux-page-nav a {
+  text-decoration: none;
+  color: #888;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  padding: 8px 0;
+  transition: color 0.2s, font-weight 0.2s;
+}
+
+.ux-page-nav a.active,
+.ux-page-nav a:hover {
+  color: #111;
+  font-weight: 500;
+}
+
 /* UX page header styling */
 .ux-project-header {
   font-weight: 400 !important;
