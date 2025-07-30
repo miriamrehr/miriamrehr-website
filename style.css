@@ -303,7 +303,7 @@ p,
 .content-area {
   flex: 1;
   margin-left: 320px;
-  background: #FCFAF9;
+  background: #F5EEE6;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -332,19 +332,19 @@ p,
 }
 
 .scattered-text.coding {
-  top: 2%;
+  top: 5%;
   left: 50%;
   transform: translateX(-100px);
 }
 
 .scattered-text.ux {
-  top: 25%;
+  top: 35%;
   right: 80%;
   transform: translateX(100px);
 }
 
 .scattered-text.design {
-  bottom: 5%;
+  bottom: 10%;
   left: 5%;
   transform: translateX(-100px);
   transition-delay: 0.3s;
@@ -356,11 +356,11 @@ p,
 }
 
 .scattered-text.design::first-letter {
-  color: #4CAF50;
+  color: #7A886F;
 }
 
 .scattered-text.coding::first-letter {
-  color: #4CAF50 !important;
+  color: #7A886F !important;
 }
 
 .hero-images {
