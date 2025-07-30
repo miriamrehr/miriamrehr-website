@@ -272,6 +272,13 @@ p,
   border-radius: 8px;
 }
 
+.project-image-compact object {
+  width: 100%;
+  height: 600px;
+  border-radius: 8px;
+  border: none;
+}
+
 .project-description {
   max-width: 700px;
   margin: 0 auto;
