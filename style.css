@@ -247,7 +247,7 @@ p,
 .index-page .navbar {
   width: 280px;
   height: 100vh;
-  background: #E8DCC8;
+  background: none;
   position: fixed;
   top: 0;
   left: 0;
