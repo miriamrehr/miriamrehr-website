@@ -2,37 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Miriam Rehr</title>
+  <title>UX/UI - Miriam Rehr</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="index-page">
-  <!-- Left Sidebar Navigation -->
   <nav class="navbar">
-    <div class="nav-header">
-      <h1 class="nav-name">Miriam Rehr</h1>
-    </div>
     <ul>
-      <li><a href="index.html" class="index active">Home</a></li>
+      <li><a href="index.html" class="index">Home</a></li>
       <li><a href="about.html" class="about">About</a></li>
-      <li><a href="ux-ui.html" class="ux-ui">UX/UI</a></li>
+      <li><a href="ux-ui.html" class="ux-ui active">UX/UI</a></li>
       <li><a href="graphic-design.html" class="graphic-design">Graphics</a></li>
       <li><a href="projects.html" class="projects">Projects</a></li>
     </ul>
   </nav>
 
-  <!-- Right Content Area -->
-  <main class="content-area">
-    <div class="hero-text">
-      <h2 class="scattered-text coding">Coding</h2>
-      <h2 class="scattered-text ux">UX</h2>
-      <h2 class="scattered-text design">Design</h2>
-    </div>
-    
-    <div class="hero-images">
-      <img src="billeder/portrait2.jpg" alt="Portrait" class="hero-image top-image">
-      <img src="billeder/portrait3.jpg" alt="Portrait" class="hero-image bottom-image">
-    </div>
-  </main>
+  <section>
+    <h1>UX/UI Design</h1>
+    <p>User experience and interface design projects.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section>
+    <h2>My UX/UI Work</h2>
+    <p>Here you can showcase your UX/UI design projects, wireframes, and prototypes.</p>
+  </section>
 
   <script>
     const observer = new IntersectionObserver(entries => {
@@ -44,11 +38,10 @@
       });
     }, { threshold: 0.3 });
 
-    document.querySelectorAll('h1, h2, .scattered-text').forEach(header => {
+    document.querySelectorAll('h1, h2').forEach(header => {
       observer.observe(header);
     });
 
-    // Active link highlight
     let currentPage = window.location.pathname.split("/").pop();
     if (currentPage === "" || currentPage === "index.html") {
       currentPage = "index";
@@ -61,4 +54,4 @@
     }
   </script>
 </body>
-</html>
+</html> 
