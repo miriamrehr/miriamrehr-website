@@ -73,13 +73,13 @@ section,
 .graphic-design-intro,
 .ux-design-section,
 .illustration-artworks {
-  background: #F5EEE6;
-  border-radius: 32px;
-  box-shadow: var(--soft-shadow);
-  padding: 60px 50px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 40px 60px;
   margin-top: 40px;
   margin-bottom: 40px;
-  margin-left: 40px;
+  margin-left: 60px;
   margin-right: 40px;
 }
 
@@ -261,7 +261,7 @@ p,
 .project-image-compact {
   text-align: center;
   margin: 0 auto;
-  max-width: 350px;
+  max-width: 600px;
 }
 
 .showcase-img-compact {
@@ -271,7 +271,7 @@ p,
 }
 
 .project-description {
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
   text-align: left;
 }
