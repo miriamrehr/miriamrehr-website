@@ -274,7 +274,7 @@ p,
 
 .project-image-compact object {
   width: 100%;
-  height: 600px;
+  height: 800px;
   border-radius: 8px;
   border: none;
 }
@@ -290,6 +290,12 @@ p,
   line-height: 1.5;
   color: #444;
   margin: 0;
+}
+
+/* Project header styling */
+section h2 {
+  font-weight: 400 !important;
+  font-size: 2rem;
 }
 
 /* ---- GRAPHIC DESIGN PAGE ACCENT ---- */
