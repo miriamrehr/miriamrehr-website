@@ -302,7 +302,7 @@ p,
 
 .content-area {
   flex: 1;
-  margin-left: 280px;
+  margin-left: 320px;
   background: #FCFAF9;
   position: relative;
   overflow: hidden;
@@ -370,7 +370,6 @@ p,
 
 .hero-image {
   position: absolute;
-  border-radius: 12px;
   object-fit: cover;
   box-shadow: 0 8px 32px 0 rgba(0,0,0,0.1);
 }
@@ -380,7 +379,6 @@ p,
   height: 200px;
   top: 30%;
   left: 45%;
-  transform: rotate(-5deg);
 }
 
 .bottom-image {
@@ -388,7 +386,6 @@ p,
   height: 180px;
   bottom: 35%;
   left: 55%;
-  transform: rotate(3deg);
 }
 
 @media (max-width: 1200px) {
