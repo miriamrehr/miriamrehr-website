@@ -292,11 +292,8 @@ p,
   margin: 0;
 }
 
-/* Project header styling */
-section h2,
-.index-page section h2,
-body section h2,
-h2 {
+/* Project header styling - only for UX design page */
+.ux-ui.active ~ section h2 {
   font-weight: 400 !important;
   font-size: 2rem !important;
   color: #111 !important;
