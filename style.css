@@ -332,20 +332,20 @@ p,
 }
 
 .scattered-text.coding {
-  top: 5%;
-  left: 5%;
+  top: 2%;
+  left: 2%;
   transform: translateX(-100px);
 }
 
 .scattered-text.ux {
-  top: 30%;
-  right: 5%;
+  top: 25%;
+  right: 2%;
   transform: translateX(100px);
 }
 
 .scattered-text.design {
-  bottom: 10%;
-  left: 10%;
+  bottom: 5%;
+  left: 5%;
   transform: translateX(-100px);
   transition-delay: 0.3s;
 }
@@ -377,15 +377,15 @@ p,
 .top-image {
   width: 300px;
   height: 200px;
-  top: 15%;
-  right: 5%;
+  top: 10%;
+  right: 2%;
 }
 
 .bottom-image {
   width: 280px;
   height: 180px;
-  bottom: 20%;
-  right: 10%;
+  bottom: 15%;
+  right: 5%;
 }
 
 @media (max-width: 1200px) {
