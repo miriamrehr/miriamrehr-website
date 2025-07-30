@@ -22,7 +22,7 @@ body.index-page {
 
 /* ---- NAVIGATION ---- */
 .navbar {
-  width: 220px;
+  width: 280px;
   height: 100vh;
   background: none;
   position: fixed;
@@ -146,10 +146,10 @@ p,
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 32px;
-  background: #F5EEE6;
-  border-radius: 32px;
-  box-shadow: var(--soft-shadow);
-  padding: 60px 50px;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 40px 60px;
 }
 
 .project-item {
@@ -571,6 +571,6 @@ p,
   body > .graphic-design-intro,
   body > .ux-design-section,
   body > .illustration-artworks {
-    margin-left: 240px;
+    margin-left: 280px;
   }
 }
