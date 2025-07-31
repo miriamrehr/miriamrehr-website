@@ -3,7 +3,7 @@
    ======================================== */
 
 /* ========================================
-   IMPORTS & VARIABLES
+   IMPORTS & CSS VARIABLES
    ======================================== */
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@300;400;500;600&family=Inter:wght@400;500&display=swap');
 
@@ -25,68 +25,188 @@
 }
 
 /* ========================================
-   GLOBAL STYLES
+   GLOBAL STYLES & RESET
    ======================================== */
 body,
 body.index-page {
   background: #F5EEE6;
-  color: #111;
+  color: #2A2A35;
   font-family: var(--font-primary);
   margin: 0;
   padding: 0;
 }
 
 /* ========================================
-   NAVIGATION - ALL PAGES
+   MAIN NAVIGATION - ALL PAGES
    ======================================== */
-.navbar {
-  width: 280px;
-  height: 100vh;
-  background: none;
+/* Main Navigation Container */
+.main-nav {
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 30px 20px 0 20px;
-  box-shadow: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  width: 400px;
+  height: 100vh;
+  z-index: 1000;
 }
 
-.navbar ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #888;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  background: none;
-  border-radius: 0;
-  padding: 6px 0;
-  transition: color 0.2s;
-}
-
-.navbar a.active,
-.navbar a:hover {
-  color: #111;
+/* Name in Navigation */
+.nav-name {
+  position: fixed;
+  top: 80px;
+  left: 25px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem;
   font-weight: 500;
-  background: none;
+  color: #2A2A35;
+  z-index: 1001;
+}
+
+/* Navigation Items - Base Styles */
+.nav-item {
+  position: fixed;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: -0.02em;
+  z-index: 1001;
+}
+
+/* Navigation Item Positions (around red line) */
+.nav-item.home {
+  top: 180px;
+  left: 280px; /* Right side of red line */
+  color: #96BFE6;
+}
+
+.nav-item.about {
+  top: 240px;
+  left: 150px; /* Left side of red line */
+  color: #A90636;
+}
+
+.nav-item.ux-ui {
+  top: 300px;
+  left: 280px; /* Right side of red line */
+  color: #2A2A35;
+}
+
+.nav-item.graphics {
+  top: 360px;
+  left: 110px; /* Left side of red line */
+  color: #96BFE6;
+}
+
+.nav-item.apps {
+  top: 420px;
+  left: 270px; /* Right side of red line */
+  color: #A90636;
+  white-space: pre-line;
+  line-height: 1.2;
+}
+
+/* Navigation Item Interactions */
+.nav-item:hover {
+  transform: scale(1.05);
+}
+
+.nav-item.active {
+  color: #A90636 !important;
+}
+
+.nav-item.home.active {
+  color: #96BFE6 !important;
 }
 
 /* ========================================
-   UNIVERSAL PAGE ELEMENTS
+   INDEX PAGE - HERO TEXT
    ======================================== */
-/* Section containers for all pages */
+/* Hero Text Container */
+.hero-text {
+  position: fixed;
+  z-index: 1001;
+}
+
+/* Hero Text - "design" */
+.hero-design {
+  position: fixed;
+  top: 250px;
+  right: 400px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #A90636;
+  margin: 0;
+  line-height: 0.9;
+  z-index: 1001;
+}
+
+/* Hero Text - "portfolio" */
+.hero-portfolio {
+  position: fixed;
+  top: 320px;
+  right: 320px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: #2A2A35;
+  margin: 0;
+  line-height: 0.9;
+  z-index: 1001;
+}
+
+/* ========================================
+   INDEX PAGE - HERO IMAGES
+   ======================================== */
+/* Hero Images Container */
+.hero-images {
+  position: absolute;
+  top: 0;
+  left: -50;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Base Hero Image Styles */
+.hero-image {
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.1);
+}
+
+/* Top Right Image */
+.top-image {
+  width: 800px;
+  height: 120px;
+  top: 5%;
+  right: 5%;
+}
+
+/* Bottom Right Image */
+.bottom-image {
+  width: 280px;
+  height: 180px;
+  bottom: 15%;
+  right: 5%;
+}
+
+/* Bottom Left Image */
+.bottom-left-image {
+  width: 800px;
+  height: 120px;
+  bottom: 5%;
+  left: 5%;
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.1);
+}
+
+/* ========================================
+   PAGE LAYOUT - UNIVERSAL ELEMENTS
+   ======================================== */
+/* Section Containers for All Pages */
 section,
 .about-header,
 .projects-grid,
@@ -100,16 +220,19 @@ section,
   padding: 40px 60px;
   margin-top: 40px;
   margin-bottom: 40px;
-  margin-left: 60px;
+  margin-left: 400px;
   margin-right: 40px;
 }
 
-/* Adjust top margin for UX page to account for horizontal nav */
+/* UX Page Content Spacing */
 .ux-content {
-  margin-top: 200px !important; /* Extra space for the horizontal navigation (100px nav + 100px spacing) */
+  margin-top: 100px !important; /* Space for the horizontal navigation */
 }
 
-/* Typography for all pages */
+/* ========================================
+   TYPOGRAPHY - UNIVERSAL STYLES
+   ======================================== */
+/* Headings - All Pages */
 h1, h2, h3,
 .about-header h1,
 .projects-grid h1,
@@ -127,13 +250,14 @@ h1, h2, h3,
 .illustration-artworks h3 {
   font-family: var(--font-heading);
   font-weight: 400;
-  color: #111;
+  color: #2A2A35;
   margin-top: 0;
   letter-spacing: -0.04em;
   line-height: 1.05;
   font-size: 1.8rem;
 }
 
+/* Paragraphs - All Pages */
 p,
 .about-header p,
 .projects-grid p,
@@ -148,6 +272,7 @@ p,
   margin-bottom: 24px;
 }
 
+/* Dividers */
 .divider {
   width: 100%;
   height: 2px;
@@ -157,201 +282,107 @@ p,
 }
 
 /* ========================================
-   HOME PAGE (INDEX) - SPECIFIC STYLES
-   ======================================== */
-.index-page {
-  display: flex;
-  min-height: 100vh;
-  background: #F5EEE6;
-}
-
-/* Home page navigation */
-.index-page .navbar {
-  width: 280px;
-  height: 100vh;
-  background: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  padding: 40px 30px;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.nav-header {
-  margin-bottom: 60px;
-}
-
-.nav-name {
-  font-family: var(--font-name);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #111;
-  margin: 0;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  text-transform: lowercase;
-  text-align: left;
-}
-
-.index-page .navbar ul {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.index-page .navbar a {
-  text-decoration: none;
-  color: #111;
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 400;
-  letter-spacing: 0.05em;
-  background: none;
-  border-radius: 0;
-  padding: 0;
-  transition: color 0.2s, font-weight 0.2s;
-}
-
-.index-page .navbar a.active,
-.index-page .navbar a:hover {
-  color: #111;
-  font-weight: 600;
-  background: none;
-}
-
-/* Home page content area */
-.content-area {
-  flex: 1;
-  margin-left: 320px;
-  background: #F5EEE6;
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-text {
-  position: relative;
-  z-index: 2;
-}
-
-/* Hero text styling */
-.scattered-text {
-  font-family: var(--font-heading);
-  font-size: 8rem !important;
-  font-weight: 700;
-  color: #111;
-  margin: 0;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-  position: absolute;
-  opacity: 0;
-  transform: translateX(-100px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.scattered-text.coding {
-  top: 5%;
-  left: 50%;
-  transform: translateX(-100px);
-}
-
-.scattered-text.ux {
-  top: 35%;
-  right: 80%;
-  transform: translateX(100px);
-}
-
-.scattered-text.design {
-  bottom: 10%;
-  left: 5%;
-  transform: translateX(-100px);
-  transition-delay: 0.3s;
-}
-
-.scattered-text.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.scattered-text.design::first-letter {
-  color: #7A886F;
-}
-
-.scattered-text.coding::first-letter {
-  color: #7A886F !important;
-}
-
-/* Home page hero images */
-.hero-images {
-  position: absolute;
-  top: 0;
-  left: -50;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.hero-image {
-  position: absolute;
-  object-fit: cover;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.1);
-}
-
-.top-image {
-  width: 800px;
-  height: 120px;
-  top: 5%;
-  right: 5%;
-}
-
-.bottom-image {
-  width: 280px;
-  height: 180px;
-  bottom: 15%;
-  right: 5%;
-}
-
-.bottom-left-image {
-  width: 800px;
-  height: 120px;
-  bottom: 5%;
-  left: 5%;
-  position: absolute;
-  object-fit: cover;
-  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.1);
-}
-
-/* ========================================
    ABOUT PAGE - SPECIFIC STYLES
    ======================================== */
-/* About page styles removed - starting fresh */
+/* About Page Horizontal Navigation */
+.about-page-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 400px !important;
+  right: 0 !important;
+  background: rgba(245, 238, 230, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  padding: 20px 60px !important;
+  z-index: 100 !important;
+  display: block !important;
+}
+
+.about-page-nav ul {
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  gap: 40px !important;
+  justify-content: flex-start !important;
+}
+
+.about-page-nav a {
+  text-decoration: none !important;
+  color: #888 !important;
+  font-family: 'DM Sans', Arial, sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  padding: 8px 0 !important;
+  transition: color 0.2s, font-weight 0.2s !important;
+}
+
+.about-page-nav a.active,
+.about-page-nav a:hover {
+  color: #2A2A35 !important;
+  font-weight: 500 !important;
+}
+
+/* About Page Content Layout */
+.about-content {
+  margin-left: 400px;
+  padding: 100px 60px 40px 60px;
+  position: relative;
+}
+
+.about-section {
+  margin-bottom: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+.about-text-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* About Page Typography */
+.about-section h2 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 400;
+  color: #2A2A35;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+.about-section p {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+/* About Page Image */
+.about-me-image {
+  width: 400px;
+  height: auto;
+  border-radius: 0;
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
 
 /* ========================================
-   PROJECTS PAGE - SPECIFIC STYLES
+   UX/UI PAGE - SPECIFIC STYLES
    ======================================== */
-/* Projects page styles removed - starting fresh */
-
-/* ========================================
-   UX DESIGN PAGE - SPECIFIC STYLES
-   ======================================== */
-/* UX page horizontal navigation */
+/* UX Page Horizontal Navigation */
 .ux-page-nav {
   position: fixed;
-  top: 100px; /* Moved lower down from the top */
-  left: 280px; /* Position after the main navbar */
+  top: 0;
+  left: 400px;
   right: 0;
-  background: #F5EEE6;
-  border-bottom: 1px solid #e0e0e0;
-  z-index: 100;
-  padding: 20px 40px;
+  background: rgba(245, 238, 230, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 20px 60px;
+  z-index: 1001;
 }
 
 .ux-page-nav ul {
@@ -366,7 +397,7 @@ p,
 .ux-page-nav a {
   text-decoration: none;
   color: #888;
-  font-family: var(--font-heading);
+  font-family: 'DM Sans', Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.05em;
@@ -376,19 +407,37 @@ p,
 
 .ux-page-nav a.active,
 .ux-page-nav a:hover {
-  color: #111;
+  color: #2A2A35;
   font-weight: 500;
 }
 
-/* UX page header styling */
+/* UX Page Headers */
 .ux-project-header {
   font-weight: 400 !important;
   font-size: 3rem !important;
-  color: #111 !important;
-  margin-left: 100px !important;
+  color: #2A2A35 !important;
+  margin-left: 300px !important;
 }
 
-/* UX page project showcase */
+/* UX Page Project Descriptions */
+.project-description {
+  max-width: 700px;
+  margin: 0 0 0 300px;
+  padding-bottom: 40px;
+  text-align: left;
+}
+
+.project-description p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #444;
+  margin: 0;
+}
+
+/* ========================================
+   UX/UI PAGE - PROJECT IMAGES
+   ======================================== */
+/* Project Showcase Container */
 .project-showcase-compact {
   display: flex;
   flex-direction: column;
@@ -396,6 +445,107 @@ p,
   margin: 60px 0 20px 0px;
 }
 
+/* Homepage Image */
+.showcase-img-homepage {
+  display: block;
+  margin: 40px auto 40px 100px;
+  max-width: 1000px;
+  width: 90%;
+  height: auto;
+}
+
+.project-image-homepage {
+  text-align: center;
+  margin: 10px 30px 30px 40px;
+  max-width: 1000px;
+}
+
+/* Logo Image */
+.showcase-img-logo {
+  display: block;
+  margin: 60px 100px 30px 10px;
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 0%;
+}
+
+.project-image-logo {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+/* Color Profile Image */
+.showcase-img-colorprofile {
+  display: block;
+  margin: 30px 30px 30px 0px;
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+}
+
+.project-image-colorprofile {
+  text-align: left;
+  margin: 0 0 0 400px;
+  max-width: 500px;
+}
+
+/* Animation Images Container */
+.animation-images-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 30px;
+  margin: 40px 0 20px 100px;
+}
+
+/* Animation Image 1 */
+.showcase-img-animation1 {
+  display: block;
+  margin: 0;
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.project-image-animation1 {
+  text-align: left;
+  margin: 0;
+  max-width: 300px;
+}
+
+/* Animation Image 2 */
+.showcase-img-animation2 {
+  display: block;
+  margin: 0;
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.project-image-animation2 {
+  text-align: left;
+  margin: 0;
+  max-width: 400px;
+}
+
+/* Projects Image */
+.showcase-img-projects {
+  display: block;
+  margin: 40px auto 40px 70px;
+  max-width: 1200px;
+  width: 95%;
+  height: auto;
+}
+
+.project-image-projects {
+  text-align: center;
+  margin: 10px 30px 30px 40px;
+  max-width: 1000px;
+}
+
+/* Compact Project Images */
 .project-image-compact {
   text-align: left;
   margin: 80px 100px 80px 20px;
@@ -415,142 +565,10 @@ p,
   border-radius: 0%;
 }
 
-.project-description {
-  max-width: 700px;
-  margin: 0 0 0 110px;  /* top: 0, right: 0, bottom: 0, left: 100px */
-  padding-bottom: 40px;
-  text-align: left;
-}
-
-.project-description p {
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #444;
-  margin: 0;
-}
-
-/* Homepage image styling for UX page */
-.showcase-img-homepage {
-  display: block;
-  margin: 40px auto 40px 80px; /* top, right, bottom, left */
-  max-width: 1000px;
-  width: 90%;
-  height: auto;
-}
-
-.project-image-homepage {
-  text-align: center;
-  margin: 10px 30px 30px 40px;
-  max-width: 1000px;
-}
-
-
-
-/* Logo image styling for UX page */
-.showcase-img-logo {
-  display: block;
-  margin: 60px 100px 30px 10px;
-  max-width: 400px;
-  width: 100%;
-  height: auto;
-  border-radius: 0%;
-
-}
-
-.project-image-logo {
-  text-align: center;
-  margin: 0 auto;
-  max-width: 400px;
-}
-
-/* Color profile image styling for UX page */
-.showcase-img-colorprofile {
-  display: block;
-  margin: 30px 30px 30px 0px;
-  max-width: 500px;
-  width: 100%;
-  height: auto;
-}
-
-.project-image-colorprofile {
-  text-align: left;
-  margin: 0 0 0 110px;  /* top: 0, right: 0, bottom: 0, left: 0px */
-  max-width: 500px;
-}
-
-/* Animation image styling for UX page */
-.showcase-img-animation1 {
-  display: block;
-  margin: 0;  /* Remove margin since container handles spacing */
-  width: 300px;  /* Fixed width instead of percentage */
-  height: 300px;  /* Fixed height to make them square */
-  object-fit: contain;  /* Shows entire image without cropping */
-}
-
-.project-image-animation1 {
-  text-align: left;
-  margin: 0;
-  max-width: 300px;
-}
-
-/* Animation images container for side-by-side layout */
-.animation-images-container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 30px;  /* Space between the two images */
-  margin: 40px 0 20px 100px;  /* Increased left margin to move images right */
-}
-
-/* Second animation image styling for UX page */
-.showcase-img-animation2 {
-  display: block;
-  margin: 0;  /* Remove margin since container handles spacing */
-  width: 300px;  /* Fixed width instead of percentage */
-  height: 300px;  /* Fixed height to make them square */
-  object-fit: contain;  /* Shows entire image without cropping */
-}
-
-.project-image-animation2 {
-  text-align: left;
-  margin: 0;
-  max-width: 400px;
-}
-
-/* Projects image styling for UX page */
-.showcase-img-projects {
-  display: block;
-  margin: 40px auto 40px 70px;  /* Back to original margin like homepage image */
-  max-width: 1200px;  /* Increased max-width to make it bigger */
-  width: 95%;  /* Increased width percentage to make it bigger */
-  height: auto;
-}
-
-/* Add more space above the projects description text */
+/* Spacing for Projects Description */
 .animation-images-container + .project-description {
-  margin-top: 80px;  /* Add space above the text that comes after animation images */
+  margin-top: 80px;
 }
-
-.project-image-projects {
-  text-align: center;  /* Same alignment as homepage image */
-  margin: 10px 30px 30px 40px;  /* Same margin as homepage image */
-  max-width: 1000px;  /* Same max-width as homepage image */
-}
-
-/* ========================================
-   GRAPHIC DESIGN PAGE - SPECIFIC STYLES
-   ======================================== */
-/* Graphic design page styles removed - starting fresh */
-
-/* ========================================
-   ILLUSTRATIONS & GRAPHICS PAGE - SPECIFIC STYLES
-   ======================================== */
-/* Add specific styles for illustrations page here when needed */
-
-/* ========================================
-   CONTACT PAGE - SPECIFIC STYLES
-   ======================================== */
-/* Add specific styles for contact page here when needed */
 
 /* ========================================
    SHARED PROJECT SHOWCASE STYLES
@@ -596,10 +614,8 @@ p,
 /* ========================================
    RESPONSIVE DESIGN - MOBILE & TABLET
    ======================================== */
+/* Large Screens (1200px and below) */
 @media (max-width: 1200px) {
-  .scattered-text {
-    font-size: 6rem;
-  }
   .top-image {
     width: 250px;
     height: 160px;
@@ -610,7 +626,9 @@ p,
   }
 }
 
+/* Medium Screens (900px and below) */
 @media (max-width: 900px) {
+  /* Navigation Adjustments */
   .navbar {
     width: 100vw;
     height: auto;
@@ -622,10 +640,13 @@ p,
     box-shadow: none;
     border-radius: 0;
   }
+  
   .navbar ul {
     flex-direction: row;
     gap: 12px;
   }
+  
+  /* Section Layout Adjustments */
   section,
   .about-header,
   .projects-grid,
@@ -636,40 +657,42 @@ p,
     padding: 30px 10px;
     border-radius: 18px;
   }
+  
+  /* About Page Adjustments */
   .about-header-content {
     flex-direction: column;
     gap: 20px;
   }
+  
   .about-image {
     width: 120px;
     height: 120px;
   }
+  
+  /* Projects Grid Adjustments */
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 18px;
   }
+  
+  /* Index Page Adjustments */
   .index-page {
     flex-direction: column;
   }
+  
   .index-page .navbar {
     width: 100%;
     height: auto;
     position: static;
     padding: 20px;
   }
+  
   .content-area {
     margin-left: 0;
     min-height: 70vh;
   }
-  .scattered-text {
-    font-size: 4rem;
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    margin: 20px 0;
-  }
+
+  /* Hero Images Adjustments */
   .hero-images {
     position: relative;
     display: flex;
@@ -678,12 +701,14 @@ p,
     align-items: center;
     margin-top: 40px;
   }
+  
   .hero-image {
     position: relative;
     transform: none;
   }
 }
 
+/* Large Screens (900px and above) */
 @media (min-width: 900px) {
   body > section,
   body > .about-header,

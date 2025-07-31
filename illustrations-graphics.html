@@ -2,40 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Illustrations and Graphics - Miriam Rehr</title>
+  <title>Illustrations & Graphics - Miriam Rehr</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <nav class="navbar">
-    <div class="nav-header">
-      <h1 class="nav-name">Miriam Rehr</h1>
-    </div>
-    <ul>
-      <li><a href="index.html" class="index">Home</a></li>
-      <li><a href="about.html" class="about">About</a></li>
-      <li><a href="ux-ui.html" class="ux-ui">UX Design</a></li>
-      <li><a href="illustrations-graphics.html" class="illustrations-graphics">Illustrations and Graphics</a></li>
-      <li><a href="projects.html" class="projects">Projects</a></li>
-    </ul>
+<body class="index-page">
+  <!-- Main Navigation with Alternating Menu Items -->
+  <nav class="main-nav">
+    <!-- Name on left side -->
+    <div class="nav-name">miriam rehr</div>
+    
+    <!-- Navigation items positioned around red line -->
+    <a href="index.html" class="nav-item home">home</a>
+    <a href="about.html" class="nav-item about">about</a>
+    <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
+    <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
+    <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
+    
+    <!-- Border Line -->
+    <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
   </nav>
 
-  <section>
-    <h1>Illustrations and Graphics</h1>
-    <p>Welcome to my illustrations and graphics portfolio. Here you'll find a collection of my creative work including digital illustrations, graphic design projects, and visual art pieces.</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <section>
-    <h2>Digital Illustrations</h2>
-    <p>Explore my digital illustration work, created using various digital tools and techniques.</p>
-  </section>
-
-  <div class="divider"></div>
-
-  <section>
-    <h2>Graphic Design</h2>
-    <p>Browse through my graphic design projects, including logos, posters, and branding materials.</p>
+  <section class="ux-content">
+    <h2 class="ux-project-header">Illustrations & Graphics</h2>
+    
+    <div class="project-description">
+      <p>Illustrations and graphics projects will be displayed here. This page showcases visual design work, illustrations, and graphic design projects.</p>
+    </div>
+    
+    <!-- Add your illustrations and graphics projects here -->
   </section>
 
   <script>
@@ -52,16 +46,29 @@
       observer.observe(header);
     });
 
+    // Active link highlight for new navigation
     let currentPage = window.location.pathname.split("/").pop();
     if (currentPage === "" || currentPage === "index.html") {
-      currentPage = "index";
+      currentPage = "home";
+    } else if (currentPage === "illustrations-graphics.html") {
+      currentPage = "graphics";
+    } else if (currentPage === "projects.html") {
+      currentPage = "apps";
     } else {
       currentPage = currentPage.replace(".html", "");
     }
-    const activeLink = document.querySelector(`.navbar a.${currentPage}`);
+    const activeLink = document.querySelector(`.nav-item.${currentPage}`);
     if (activeLink) {
       activeLink.classList.add('active');
     }
+
+    // Border line animation
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        const borderLine = document.getElementById('borderLine');
+        borderLine.style.height = '100vh';
+      }, 100);
+    });
   </script>
 </body>
 </html> 
