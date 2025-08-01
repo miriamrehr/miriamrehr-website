@@ -582,17 +582,110 @@ p,
 }
 
 .project-image {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  padding: 0;
+  transition: transform 0.3s ease;
+  width: 100%;
+  height: 25vh;
+  margin: 0;
+  position: relative;
 }
 
 .project-image:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
+
+.project-image img {
+  width: auto;
+  height: auto;
+  max-width: 600px;
+  display: block;
+  position: absolute;
+  top: 10%;
+  left: 30%;
+}
+
+/* Carousel styles */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 600px;
+  margin: -2rem 0 2rem auto;
+  overflow: hidden;
+}
+
+.carousel-slide {
+  display: none;
+  text-align: center;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide.active {
+  display: flex;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  max-height: 500px;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* Navigation dots */
+.carousel-dots {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 8px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #A90636;
+}
+
+/* Navigation arrows */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  color: #96BFE6;
+  border: none;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.carousel-btn:hover {
+  color: #2A2A35;
+}
+
+.carousel-btn.prev {
+  left: 2rem;
+}
+
+.carousel-btn.next {
+  right: 2rem;
+}
+
+
 
 .showcase-img {
   width: 100%;
@@ -614,6 +707,13 @@ p,
 /* ========================================
    RESPONSIVE DESIGN - MOBILE & TABLET
    ======================================== */
+/* 
+   RESPONSIVE DESIGN GOAL:
+   This website aims to be fully responsive across all devices.
+   All images, layouts, and components should adapt seamlessly
+   from mobile phones to desktop screens while maintaining
+   visual integrity and user experience.
+*/
 /* Large Screens (1200px and below) */
 @media (max-width: 1200px) {
   .top-image {

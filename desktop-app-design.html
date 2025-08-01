@@ -32,12 +32,35 @@
   </nav>
 
   <section class="ux-content">
-    <h2 class="ux-project-header">Desktop App Design</h2>
+    <h2 class="ux-project-header">NOONOO</h2>
     
     <div class="project-description">
-      <p>Desktop application design projects will be displayed here. This page showcases desktop software designs and user interface work.</p>
+      <p>The client requested a redesign of their existing desktop application, NOONOO. The app aggregates and organizes messages from various platforms, including Telegram, by scraping data and sorting it using customizable filters defined by the user.</p>
     </div>
     
+    <div class="project-image">
+      <img src="billeder/noonoocolors.png" alt="NOONOO Colors">
+    </div>
+    
+    <div class="carousel-container">
+      <div class="carousel-slide active">
+        <img src="billeder/noonoohomepage.png" alt="NOONOO Homepage Design">
+      </div>
+      <div class="carousel-slide">
+        <img src="billeder/noonooprojectoverview.png" alt="NOONOO Project Overview">
+      </div>
+      
+      <!-- Navigation dots -->
+      <div class="carousel-dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+      </div>
+      
+      <!-- Navigation arrows -->
+      <button class="carousel-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="carousel-btn next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
     <!-- Add your desktop app design projects here -->
   </section>
 
@@ -78,6 +101,36 @@
         borderLine.style.height = '100vh';
       }, 100);
     });
+
+    // Carousel functionality
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      slides.forEach(slide => slide.classList.remove('active'));
+      dots.forEach(dot => dot.classList.remove('active'));
+      
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+    }
+
+    function changeSlide(direction) {
+      currentSlideIndex += direction;
+      
+      if (currentSlideIndex >= slides.length) {
+        currentSlideIndex = 0;
+      } else if (currentSlideIndex < 0) {
+        currentSlideIndex = slides.length - 1;
+      }
+      
+      showSlide(currentSlideIndex);
+    }
+
+    function currentSlide(index) {
+      currentSlideIndex = index - 1;
+      showSlide(currentSlideIndex);
+    }
   </script>
 </body>
 </html> 
