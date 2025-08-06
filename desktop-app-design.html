@@ -32,7 +32,7 @@
   </nav>
 
   <section class="ux-content">
-    <h2 class="ux-project-header">NOONOO</h2>
+    <h2 class="ux-project-header">Desktop app design: NOONOO</h2>
     
     <div class="project-description">
       <p>The client requested a redesign of their existing desktop application, NOONOO. The app aggregates and organizes messages from various platforms, including Telegram, by scraping data and sorting it using customizable filters defined by the user.</p>
@@ -49,11 +49,24 @@
       <div class="carousel-slide">
         <img src="billeder/noonooprojectoverview.png" alt="NOONOO Project Overview">
       </div>
+      <div class="carousel-slide">
+        <img src="billeder/noonooowlusers.png" alt="NOONOO Users">
+      </div>
+      <div class="carousel-slide">
+        <img src="billeder/noonoomessages.png" alt="NOONOO Messages">
+      </div>
+      
+      <!-- Carousel Counter -->
+      <div class="carousel-counter">
+        <span id="currentSlide">1</span>/<span id="totalSlides">4</span>
+      </div>
       
       <!-- Navigation dots -->
       <div class="carousel-dots">
         <span class="dot active" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
       </div>
       
       <!-- Navigation arrows -->
@@ -62,6 +75,53 @@
     </div>
 
     <!-- Add your desktop app design projects here -->
+    
+    <h3 class="ux-sub-header">Icon Design</h3>
+    
+    <div class="icon-design-container">
+      <div class="icon-image">
+        <img src="billeder/channelslogo.png" alt="Channels Logo Icon">
+        <p class="icon-label">Channels</p>
+      </div>
+      <div class="icon-image">
+        <img src="billeder/userslogo.png" alt="Users Logo Icon">
+        <p class="icon-label">Users</p>
+      </div>
+      <div class="icon-image">
+        <img src="billeder/messagelogo.png" alt="Message Logo Icon">
+        <p class="icon-label">Messages</p>
+      </div>
+    </div>
+    
+    <h3 class="ux-sub-header">Modal Windows</h3>
+    
+    <div class="project-description">
+      <p>When clicking the 'Add New Owl User' button, a modal window appears, allowing the user to input a phone number, API ID, API Hashtag, and description.</p>
+    </div>
+    
+    <div class="project-image">
+      <img src="billeder/noonooaddnewuser.png" alt="NOONOO Add New User Modal">
+    </div>
+    
+    <h3 class="ux-sub-header">Other Pop-Ups</h3>
+    
+    <h3 class="ux-sub-header">Additional Pop-Ups</h3>
+    
+    <div class="popup-tiles-container">
+      <div class="popup-tile">
+        <img src="billeder/noonooedittags.png" alt="NOONOO Edit Tags">
+      </div>
+      <div class="popup-tile">
+        <img src="billeder/noonooselect channel.png" alt="NOONOO Select Channel">
+      </div>
+      <div class="popup-tile">
+        <img src="billeder/noonootextimage.png" alt="NOONOO Text Image">
+      </div>
+      <div class="popup-tile">
+        <img src="billeder/noonooviewmessage.png" alt="NOONOO View Message">
+      </div>
+    </div>
+    
   </section>
 
   <script>
@@ -113,6 +173,9 @@
       
       slides[index].classList.add('active');
       dots[index].classList.add('active');
+      
+      // Update counter
+      document.getElementById('currentSlide').textContent = index + 1;
     }
 
     function changeSlide(direction) {
