@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Graphic Design - Miriam Rehr</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="index-page">
+  <!-- Main Navigation with Alternating Menu Items -->
+  <nav class="main-nav">
+    <!-- Name on left side -->
+    <div class="nav-name">miriam rehr</div>
+    
+    <!-- Navigation items positioned around red line -->
+    <a href="index.html" class="nav-item home">home</a>
+    <a href="about.html" class="nav-item about">about</a>
+    <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
+    <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
+    <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
+    
+    <!-- Border Line -->
+    <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
+  </nav>
+
+  <!-- Graphics Page Horizontal Navigation -->
+  <nav class="graphics-page-nav">
+    <ul>
+      <li><a href="illustrations.html">Illustrations</a></li>
+      <li><a href="graphic-design.html" class="active">Graphic design</a></li>
+    </ul>
+  </nav>
+
+  <section class="ux-content">
+    <h2 class="ux-project-header">Graphic Design</h2>
+    
+    <div class="graphics-section" style="margin-top: 60px; margin-left: 100px;">
+      <div class="graphics-text-content">
+        <h3><span style="color: #A90636;">Social Graphic</span> for Global Kitchen: Mellemfolkeligt Samvirke / ActionAid Denmark</h3>
+        <p>This social media graphic serves as a visual touchpoint for the Global Kitchen initiative, a project grounded in food justice, cultural exchange, and global solidarity. The design pairs minimalist globe iconography with clean, contemporary typography to signal global connection and shared responsibility.</p>
+      </div>
+    </div>
+
+    <div class="poster-grid">
+      <div class="poster-item">
+        <img src="billeder/globalkitchen.png" alt="Global Kitchen Poster" class="poster-image">
+      </div>
+    </div>
+
+          <div class="graphics-section" style="margin-top: 40px; margin-left: 100px;">
+        <div class="graphics-text-content">
+          <p>The earthy, soil-inspired color palette was chosen intentionally to evoke groundedness, sustainability, and the nourishment of communities from the ground up, values that mirror Mellemfolkeligt Samvirke's core mission of empowering marginalized voices to claim their rights, build democratic resilience, and fight systemic injustice. The overall aesthetic builds on the organization's commitment to grassroots activism, youth and gender minorities' empowerment, and the pursuit of a just and sustainable world.</p>
+        </div>
+      </div>
+
+      <div class="graphics-section" style="margin-top: 120px; margin-left: 100px;">
+        <div class="graphics-text-content">
+          <h3><span style="color: #96BFE6;">Poster Design</span> for Talk: Keeping a Home – Femininity, Consumerism and Labor</h3>
+          <p>I designed the full composition and hand-drew the illustration for this poster, created to promote a talk on the intersections of gender, capitalism, and domestic work. The visual centers a femme-presenting figure balancing oversized grocery bags, highlighting the often invisible emotional and physical labor involved in "keeping a home."</p>
+          <p>Blending visual cues from consumer culture and care work, the piece critiques the conflicting demands placed on femininity — to consume, to provide, and to perform. The bold color palette, graphic layout, and satirical B.I.G. Spender slogan work together to spark reflection on how labor, value, consumerism, and identity intersect in everyday life.</p>
+        </div>
+      </div>
+
+      <div class="poster-grid">
+        <div class="poster-item">
+          <img src="billeder/keepingahome.png" alt="Keeping a Home Poster" class="poster-image">
+        </div>
+      </div>
+    </section>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('h1, h2').forEach(header => {
+      observer.observe(header);
+    });
+
+    // Active link highlight for new navigation
+    let currentPage = window.location.pathname.split("/").pop();
+    if (currentPage === "" || currentPage === "index.html") {
+      currentPage = "home";
+    } else if (currentPage === "illustrations-graphics.html") {
+      currentPage = "graphics";
+    } else if (currentPage === "projects.html") {
+      currentPage = "apps";
+    } else {
+      currentPage = currentPage.replace(".html", "");
+    }
+    const activeLink = document.querySelector(`.nav-item.${currentPage}`);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+
+    // Border line animation
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        const borderLine = document.getElementById('borderLine');
+        borderLine.style.height = '100vh';
+      }, 100);
+    });
+  </script>
+</body>
+</html>

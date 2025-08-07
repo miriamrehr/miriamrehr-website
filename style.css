@@ -323,6 +323,174 @@ p,
   font-weight: 500 !important;
 }
 
+/* Graphics Page Horizontal Navigation */
+.graphics-page-nav {
+  position: fixed !important;
+  top: 0 !important;
+  left: 400px !important;
+  right: 0 !important;
+  background: rgba(245, 238, 230, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  padding: 20px 60px !important;
+  z-index: 100 !important;
+  display: block !important;
+}
+
+.graphics-page-nav ul {
+  list-style-type: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex !important;
+  gap: 40px !important;
+  justify-content: flex-start !important;
+}
+
+.graphics-page-nav a {
+  text-decoration: none !important;
+  color: #888 !important;
+  font-family: 'DM Sans', Arial, sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  letter-spacing: 0.05em !important;
+  padding: 8px 0 !important;
+  transition: color 0.2s, font-weight 0.2s !important;
+}
+
+.graphics-page-nav a.active,
+.graphics-page-nav a:hover {
+  color: #2A2A35 !important;
+  font-weight: 500 !important;
+}
+
+/* Illustrations Grid */
+.illustrations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 60px;
+  margin-left: 100px;
+  max-width: 1200px;
+}
+
+.illustration-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.illustration-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.illustration-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #2A2A35;
+  margin: 0;
+  text-align: center;
+}
+
+/* Bottle Labels Grid */
+.bottle-labels-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 60px;
+  margin-left: 100px;
+  max-width: 1200px;
+}
+
+.bottle-label-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.bottle-label-image {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.bottle-label-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #96BFE6;
+  margin: 0;
+  text-align: right;
+}
+
+/* MF Artwork Grid */
+.mf-artwork-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 60px;
+  margin-left: 100px;
+  margin-right: 50px;
+  max-width: 1200px;
+}
+
+.mf-artwork-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.mf-artwork-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.mf-artwork-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #A90636;
+  margin: 0;
+  text-align: right;
+}
+
+/* Poster Grid */
+.poster-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  margin-top: 60px;
+  margin-left: 200px;
+  margin-right: 50px;
+  max-width: 1200px;
+}
+
+.poster-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.poster-image {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
 /* About Page Content Layout */
 .about-content {
   margin-left: 400px;
@@ -365,8 +533,6 @@ p,
   flex-shrink: 0;
   width: 300px;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 /* Credentials Section */
@@ -583,7 +749,7 @@ p,
 
 .graphics-text-content {
   flex: 1;
-  max-width: 600px;
+  max-width: 800px;
   margin-left: 50px;
 }
 
@@ -656,7 +822,7 @@ p,
   font-weight: 400 !important;
   font-size: 2rem !important;
   color: #2A2A35 !important;
-  margin: 60px 0 30px 300px !important;
+  margin: 100px 0 30px 150px !important;
 }
 
 /* Additional spacing for Modal Windows header */
@@ -666,40 +832,41 @@ p,
 
 /* Additional spacing for Additional Pop-Ups header */
 .ux-sub-header:nth-of-type(3) {
-  margin-top: 150px !important;
+  margin-top: 300px !important;
 }
 
 /* Icon Design Container */
 .icon-design-container {
   display: flex;
   flex-direction: row;
-  gap: 80px;
-  margin: 100px 0 40px 400px;
+  gap: 200px;
+  margin: 100px 0 40px 250px;
   align-items: flex-start;
 }
 
 /* Modal Image Centering */
 .project-image {
   text-align: center;
-  margin: 40px 0 40px 200px;
+  margin: 40px 0 40px 0px;
   max-width: 800px;
 }
 
 /* Popup Tiles Container */
 .popup-tiles-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
-  margin: 100px 0 40px 300px;
+  margin: 100px 0 40px 150px;
   max-width: 1000px;
+  align-items: center;
 }
 
 .popup-tile {
   text-align: center;
-  background: #f8f8f8;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .popup-tile img {
@@ -711,7 +878,7 @@ p,
 
 .icon-image {
   text-align: center;
-  max-width: 200px;
+  max-width: 250px;
 }
 
 .icon-image img {
@@ -732,7 +899,7 @@ p,
 /* UX Page Project Descriptions */
 .project-description {
   max-width: 700px;
-  margin: 0 0 0 300px;
+  margin: 0 0 0 150px;
   padding-bottom: 40px;
   text-align: left;
 }
@@ -797,7 +964,7 @@ p,
 
 .project-image-colorprofile {
   text-align: left;
-  margin: 0 0 0 400px;
+  margin: 0 0 0 200px;
   max-width: 500px;
 }
 
@@ -912,7 +1079,7 @@ p,
   height: auto;
   max-width: 600px;
   display: block;
-  margin: 0 auto;
+  margin: 0 0 0 0;
   position: relative;
 }
 
@@ -922,7 +1089,7 @@ p,
   width: 100%;
   max-width: 800px;
   height: 600px;
-  margin: -6rem 0 2rem auto;
+  margin: -6rem 0 2rem 100px;
   overflow: hidden;
 }
 

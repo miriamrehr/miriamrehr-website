@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Illustrations - Miriam Rehr</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="index-page">
+  <!-- Main Navigation with Alternating Menu Items -->
+  <nav class="main-nav">
+    <!-- Name on left side -->
+    <div class="nav-name">miriam rehr</div>
+    
+    <!-- Navigation items positioned around red line -->
+    <a href="index.html" class="nav-item home">home</a>
+    <a href="about.html" class="nav-item about">about</a>
+    <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
+    <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
+    <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
+    
+    <!-- Border Line -->
+    <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
+  </nav>
+
+  <!-- Graphics Page Horizontal Navigation -->
+  <nav class="graphics-page-nav">
+    <ul>
+      <li><a href="illustrations.html" class="active">Illustrations</a></li>
+      <li><a href="graphic-design.html">Graphic design</a></li>
+    </ul>
+  </nav>
+
+  <section class="ux-content">
+    <h2 class="ux-project-header">Illustrations</h2>
+    
+    <div class="graphics-section">
+      <div class="graphics-text-content">
+        <h3><span style="color: #A90636;">Freehand</span>: Illustrations for The Red Van</h3>
+        <p>I created a series of hand-drawn illustrations for The Red Van's annual report, visualizing key themes such as hours, counselling, night shifts, talks, and conflict resolution. They requested a down-to-earth, almost child-like drawing style in their organization's colors to reflect their warm and approachable ethos. My task was to take these often abstract concepts and turn them into simple, concrete objects — making the report more engaging, relatable, and visually accessible.</p>
+      </div>
+    </div>
+
+    <div class="illustrations-grid">
+      <div class="illustration-item">
+        <img src="billeder/Valgt_Konfliktløsning 1.png" alt="Conflict Resolution Illustration" class="illustration-image">
+        <h4 class="illustration-title">Conflict Resolution</h4>
+      </div>
+      <div class="illustration-item">
+        <img src="billeder/Valgt_Talks_I.png" alt="Talks Illustration" class="illustration-image">
+        <h4 class="illustration-title">Talks</h4>
+      </div>
+      <div class="illustration-item">
+        <img src="billeder/Valgt_Timer_II.png" alt="Hours Illustration" class="illustration-image">
+        <h4 class="illustration-title">Hours</h4>
+      </div>
+      <div class="illustration-item">
+        <img src="billeder/Valgt_Nattevagter_II.png" alt="Night Shifts Illustration" class="illustration-image">
+        <h4 class="illustration-title">Night Shifts</h4>
+      </div>
+      <div class="illustration-item">
+        <img src="billeder/Valgt_Rådgivning.png" alt="Counselling Illustration" class="illustration-image">
+        <h4 class="illustration-title">Counselling</h4>
+      </div>
+      <div class="illustration-item">
+        <img src="billeder/Valgt__SoMe.png" alt="Social Media Illustration" class="illustration-image">
+        <h4 class="illustration-title">Social Media</h4>
+      </div>
+    </div>
+
+    <div class="graphics-section" style="margin-top: 120px; margin-left: 100px;">
+      <div class="graphics-text-content">
+        <h3><span style="color: #96BFE6;">Freehand</span>: Bottle Label Illustrations</h3>
+        <p>I designed a full set of bottle labels for Yunguna Brewery's Korean rice wines: Takju, Yakju, and Makgeolli. The project involved creating the entire visual identity for the bottles — including layout, typography, and hand-drawn illustrations. Each label blends soft, textured landscapes with gentle color gradients, inspired by Korean rice paddies and traditional sool culture. I developed custom typography and used organic, flowing lines to reflect the natural brewing process and the delicate complexity of the drinks themselves. The result is a visual language that feels both contemporary and rooted in tradition.</p>
+      </div>
+    </div>
+
+    <div class="bottle-labels-grid">
+      <div class="bottle-label-item">
+        <img src="billeder/Yakju-beskaret.png" alt="Yakju Bottle Label" class="bottle-label-image">
+        <h4 class="bottle-label-title">Yakju Label</h4>
+      </div>
+      <div class="bottle-label-item">
+        <img src="billeder/Takju-beskaret.png" alt="Takju Bottle Label" class="bottle-label-image">
+        <h4 class="bottle-label-title">Takju Label</h4>
+      </div>
+        </div>
+
+    <div class="graphics-section" style="margin-top: 120px; margin-left: 100px;">
+      <div class="graphics-text-content">
+        <h3><span style="color: #A90636;">Artwork</span>: Folder for Mellemfolkeligt Samvirke (Danish ActionAid)</h3>
+        <p>I created two original digital illustrations for a print folder introducing Global Kitchen, an initiative by Mellemfolkeligt Samvirke (ActionAid Denmark). The project explores food as a space for activism, cultural exchange, and collective resistance.</p>
+        <p>Each piece highlights people in the act of preparing food, surrounded by oversized vegetables — a visual choice that plays with scale to emphasize food's political and symbolic weight. The artworks were designed to feel warm, bold, and grounded in everyday life, reflecting the initiative's focus on community-building through shared meals and storytelling.</p>
+      </div>
+    </div>
+
+    <div class="mf-artwork-grid">
+      <div class="mf-artwork-item">
+        <img src="billeder/MFartwork1.png" alt="MF Artwork 1" class="mf-artwork-image">
+        <h4 class="mf-artwork-title">Global Kitchen Illustration 1</h4>
+      </div>
+      <div class="mf-artwork-item">
+        <img src="billeder/MFartwork2.png" alt="MF Artwork 2" class="mf-artwork-image">
+        <h4 class="mf-artwork-title">Global Kitchen Illustration 2</h4>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('h1, h2').forEach(header => {
+      observer.observe(header);
+    });
+
+    // Active link highlight for new navigation
+    let currentPage = window.location.pathname.split("/").pop();
+    if (currentPage === "" || currentPage === "index.html") {
+      currentPage = "home";
+    } else if (currentPage === "illustrations-graphics.html") {
+      currentPage = "graphics";
+    } else if (currentPage === "projects.html") {
+      currentPage = "apps";
+    } else {
+      currentPage = currentPage.replace(".html", "");
+    }
+    const activeLink = document.querySelector(`.nav-item.${currentPage}`);
+    if (activeLink) {
+      activeLink.classList.add('active');
+    }
+
+    // Border line animation
+    window.addEventListener('load', function() {
+      setTimeout(() => {
+        const borderLine = document.getElementById('borderLine');
+        borderLine.style.height = '100vh';
+      }, 100);
+    });
+  </script>
+</body>
+</html> 
