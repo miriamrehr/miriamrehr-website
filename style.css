@@ -128,13 +128,13 @@ body.index-page {
   z-index: 1001;
 }
 
-/* Hero Text - "design" */
+/* Hero Text - "miriam rehr" */
 .hero-design {
   position: fixed;
   top: 250px;
   right: 400px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 5rem;
+  font-size: 3.5rem;
   font-weight: 700;
   color: #A90636;
   margin: 0;
@@ -142,13 +142,13 @@ body.index-page {
   z-index: 1001;
 }
 
-/* Hero Text - "portfolio" */
+/* Hero Text - "project portfolio" */
 .hero-portfolio {
   position: fixed;
   top: 320px;
-  right: 320px;
+  right: 400px;
   font-family: 'DM Sans', sans-serif;
-  font-size: 5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #2A2A35;
   margin: 0;
@@ -1346,6 +1346,64 @@ p,
   body > .illustration-artworks {
     margin-left: 280px;
   }
+}
+
+/* ========================================
+   STEP IMAGES STYLING
+   ======================================== */
+.step-images-row {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100% !important;
+}
+
+.step-image-container {
+  flex: 1;
+  max-width: 35% !important;
+}
+
+.step-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+/* Override section margins for step images specifically */
+.ux-content .step-images-row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Full-width step images section */
+.step-images-section {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 20px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  max-width: none !important;
+}
+
+/* Override any inherited margins from parent containers */
+.ux-content .step-images-section {
+  margin-top: 20px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Override project-description margin for step images */
+.project-description .step-images-section {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 20px !important;
 }
 
 
