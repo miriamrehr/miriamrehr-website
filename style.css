@@ -59,6 +59,23 @@ body.index-page {
   font-weight: 500;
   color: #2A2A35;
   z-index: 1001;
+  text-decoration: none !important;
+  cursor: pointer;
+  pointer-events: auto;
+  display: block;
+}
+
+/* Ensure no underline on nav-name links in all states */
+.nav-name,
+.nav-name:hover,
+.nav-name:focus,
+.nav-name:active,
+.nav-name:visited {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 /* Navigation Items - Base Styles */
@@ -1406,4 +1423,212 @@ p,
   margin-top: 20px !important;
 }
 
+/* ========================================
+   FLOWER ANIMATION STYLING - HOMEPAGE
+   ======================================== */
+.flower-animation-section {
+  text-align: center;
+  margin: 60px auto;
+  max-width: 400px;
+  opacity: 0;
+  animation: fadeInFlower 2s ease-in-out forwards;
+  animation-delay: 1s; /* Starts after hero text loads */
+}
 
+.flower-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Make strokes scalable and nice */
+.flower-container svg * { 
+  vector-effect: non-scaling-stroke; 
+}
+
+/* Make SVG bigger and add visible border */
+.flower-container svg {
+  width: 100%;
+  height: auto;
+  min-width: 400px;
+  min-height: 300px;
+  border: 2px solid red; /* Temporary border to see the container */
+  /* Force the SVG to show the content area */
+  transform: scale(0.15);
+  transform-origin: center;
+}
+
+/* Base style for all paths in your groups */
+path[vectornator\:layername="stem1"], 
+path[vectornator\:layername="stem2"], 
+path[vectornator\:layername="stem3"],
+path[vectornator\:layername="leaf1"], 
+path[vectornator\:layername="leaf2"] {
+  fill: none !important;
+  stroke: #5aa6d6 !important;
+  stroke-width: 8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  
+  /* Hide the stroke until JS sets correct lengths */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 1 !important;
+}
+
+
+
+/* Flower groups - target all paths inside them */
+g[vectornator\:layername="flower1"] path,
+g[vectornator\:layername="flower2"] path,
+g[vectornator\:layername="flower3"] path {
+  fill: none !important;
+  stroke: #5aa6d6 !important;
+  stroke-width: 8 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  
+  /* Hide the stroke until JS sets correct lengths */
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 1 !important;
+}
+
+/* Appearance order and delay (adjust freely) */
+path[vectornator\:layername="stem1"] { animation: draw 2.0s ease-out forwards 0s; }
+path[vectornator\:layername="leaf1"] { animation: draw 2.0s ease-out forwards .15s; }
+g[vectornator\:layername="flower1"] path { animation: draw 2.0s ease-out forwards .30s; }
+path[vectornator\:layername="stem2"] { animation: draw 2.0s ease-out forwards .45s; }
+path[vectornator\:layername="stem3"] { animation: draw 2.0s ease-out forwards .60s; }
+path[vectornator\:layername="leaf2"] { animation: draw 2.0s ease-out forwards .75s; }
+g[vectornator\:layername="flower2"] path { animation: draw 2.0s ease-out forwards .90s; }
+g[vectornator\:layername="flower3"] path { animation: draw 2.0s ease-out forwards 1.05s; }
+
+@keyframes draw { 
+  to { 
+    stroke-dashoffset: 0; 
+  } 
+}
+
+/* Optional color fields/fills can fade in after */
+.fill { 
+  opacity: 0; 
+  animation: fade .6s ease forwards 1.35s; 
+}
+
+@keyframes fade { 
+  to { 
+    opacity: 1; 
+  } 
+}
+
+/* Respect users who want to avoid animation */
+@media (prefers-reduced-motion: reduce){
+  path[vectornator\:layername="stem1"], 
+  path[vectornator\:layername="stem2"], 
+  path[vectornator\:layername="stem3"],
+  path[vectornator\:layername="leaf1"], 
+  path[vectornator\:layername="leaf2"],
+  g[vectornator\:layername="flower1"] path,
+  g[vectornator\:layername="flower2"] path,
+  g[vectornator\:layername="flower3"] path {
+    animation: none; 
+    stroke-dasharray: 0; 
+    stroke-dashoffset: 0;
+  }
+  .fill { 
+    animation: none; 
+    opacity: 1; 
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flower-animation-section {
+    max-width: 300px;
+    margin: 40px auto;
+  }
+  
+  .flower-svg svg path,
+  .flower-svg svg circle,
+  .flower-svg svg rect,
+  .flower-svg svg polygon {
+    animation: flowerFloat 5s ease-in-out infinite;
+  }
+}
+
+/* ========================================
+   FLOWER ANIMATION STYLING
+   ======================================== */
+.flower-animation-section {
+  position: relative;
+  z-index: 10;
+  /* Make sure the section has proper dimensions */
+  min-width: 600px;
+  min-height: 500px;
+  /* Add background to see the section */
+  background-color: lightblue;
+}
+
+.flower-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.flower-svg {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+.flower-svg:hover {
+  transform: scale(1.05);
+}
+
+/* SVG layer animations */
+.flower-svg svg path,
+.flower-svg svg circle,
+.flower-svg svg rect,
+.flower-svg svg polygon {
+  animation: flowerFloat 3s ease-in-out infinite;
+}
+
+/* Different animation delays for layers */
+.flower-svg svg path:nth-child(1) { animation-delay: 0s; }
+.flower-svg svg path:nth-child(2) { animation-delay: 0.5s; }
+.flower-svg svg path:nth-child(3) { animation-delay: 1s; }
+.flower-svg svg path:nth-child(4) { animation-delay: 1.5s; }
+.flower-svg svg path:nth-child(5) { animation-delay: 2s; }
+
+/* Keyframe animation for floating effect */
+@keyframes flowerFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-5px) rotate(1deg);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-10px) rotate(0deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-5px) rotate(-1deg);
+    opacity: 0.9;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .flower-container {
+    max-width: 250px;
+  }
+  
+  .flower-svg svg path,
+  .flower-svg svg circle,
+  .flower-svg svg rect,
+  .flower-svg svg polygon {
+    animation: flowerFloat 4s ease-in-out infinite;
+  }
+}
