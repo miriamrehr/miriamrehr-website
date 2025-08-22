@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Illustrations & Graphics - Miriam Rehr</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="index-page">
+  <!-- Mobile Navigation Toggle -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <!-- Main Navigation with Alternating Menu Items -->
   <nav class="main-nav">
     <!-- Name on left side -->
-    <a href="./index.html" class="nav-name" onclick="console.log('miriam rehr clicked'); window.location.href='./index.html'; return false;">miriam rehr</a>
+    <a href="/index.html" class="nav-name">miriam rehr</a>
     
     <!-- Navigation items positioned around red line -->
     <a href="index.html" class="nav-item home">home</a>
@@ -18,8 +26,18 @@
     <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
     <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
     
-    <!-- Border Line -->
-    <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
+    <!-- Mobile Sub-Navigation -->
+    <div class="mobile-sub-nav">
+      <ul>
+        <li><a href="illustrations-graphics.html" class="main-nav-item active">Illustrations & Graphics</a></li>
+        <li><a href="graphic-design.html" class="sub-nav-item">Graphic Design</a></li>
+        <li><a href="desktop-app-design.html" class="sub-nav-item">Desktop App Design</a></li>
+        <li><a href="mobile-app-design.html" class="sub-nav-item">Mobile App Design</a></li>
+      </ul>
+    </div>
+    
+                  <!-- Border Line -->
+              <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
   </nav>
 
   <!-- Graphics Page Horizontal Navigation -->
@@ -43,17 +61,29 @@
   </section>
 
   <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
+    // Mobile Navigation Toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
 
-    document.querySelectorAll('h1, h2').forEach(header => {
-      observer.observe(header);
+    mobileNavToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileNavToggle.classList.toggle('active');
+    });
+
+    // Close mobile nav when clicking on a link
+    document.querySelectorAll('.nav-item, .nav-name').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        mobileNavToggle.classList.remove('active');
+      });
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !mobileNavToggle.contains(e.target)) {
+        mainNav.classList.remove('active');
+        mobileNavToggle.classList.remove('active');
+      }
     });
 
     // Active link highlight for new navigation
@@ -76,7 +106,9 @@
     window.addEventListener('load', function() {
       setTimeout(() => {
         const borderLine = document.getElementById('borderLine');
-        borderLine.style.height = '100vh';
+        if (borderLine) {
+          borderLine.style.height = '100vh';
+        }
       }, 100);
     });
   </script>

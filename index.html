@@ -2,10 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Miriam Rehr</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="index-page">
+  <!-- Mobile Navigation Toggle -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <!-- Main Navigation with Alternating Menu Items -->
   <nav class="main-nav">
     <!-- Name on left side -->
@@ -17,6 +25,17 @@
     <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
     <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
                   <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
+    
+    <!-- Mobile Sub-Navigation -->
+    <div class="mobile-sub-nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#" class="toggle-item" data-section="about">About Me ▼</a></li>
+        <li><a href="#" class="toggle-item" data-section="ux">UX/UI ▼</a></li>
+        <li><a href="#" class="toggle-item" data-section="graphics">Graphics ▼</a></li>
+        <li><a href="#" class="toggle-item" data-section="apps">Apps I've Built ▼</a></li>
+      </ul>
+    </div>
     
                   <!-- Border Line -->
               <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
@@ -90,6 +109,56 @@
   </div>
 
   <script>
+    // Mobile Navigation Toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
+
+    mobileNavToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileNavToggle.classList.toggle('active');
+    });
+
+    // Close mobile nav when clicking on a link
+    document.querySelectorAll('.nav-item, .nav-name').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        mobileNavToggle.classList.remove('active');
+      });
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !mobileNavToggle.contains(e.target)) {
+        mainNav.classList.remove('active');
+        mobileNavToggle.classList.remove('active');
+      }
+    });
+
+    // Simple Mobile Sub-Navigation Toggle
+    document.querySelectorAll('.mobile-sub-nav .toggle-item').forEach(toggleItem => {
+      toggleItem.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Find the sub-items container
+        const subItems = toggleItem.nextElementSibling;
+        
+        // Toggle visibility by changing inline styles
+        if (subItems && subItems.classList.contains('sub-items')) {
+          if (subItems.style.display === 'none' || subItems.style.display === '') {
+            subItems.style.display = 'block';
+            subItems.style.visibility = 'visible';
+            subItems.style.height = 'auto';
+            subItems.style.overflow = 'visible';
+          } else {
+            subItems.style.display = 'none';
+            subItems.style.visibility = 'hidden';
+            subItems.style.height = '0';
+            subItems.style.overflow = 'hidden';
+          }
+        }
+      });
+    });
+
     // Active link highlight for new navigation
     let currentPage = window.location.pathname.split("/").pop();
     if (currentPage === "" || currentPage === "index.html") {
@@ -110,99 +179,10 @@
     window.addEventListener('load', function() {
       setTimeout(() => {
         const borderLine = document.getElementById('borderLine');
-        borderLine.style.height = '100vh';
-      }, 100);
-    });
-
-    // Flower drawing animation - set correct dash length for all paths
-    const selectors = [
-      'path[vectornator\\:layername="stem1"]','path[vectornator\\:layername="stem2"]','path[vectornator\\:layername="stem3"]',
-      'path[vectornator\\:layername="leaf1"]','path[vectornator\\:layername="leaf2"]'
-    ];
-    
-    // Debug: Log what we find
-    console.log('Looking for individual paths with these selectors:', selectors);
-    
-    document.querySelectorAll(selectors.join(',')).forEach(p=>{
-      try{
-        const L = p.getTotalLength();
-        p.style.strokeDasharray  = L;
-        p.style.strokeDashoffset = L;
-        console.log('Found individual path:', p.getAttribute('vectornator:layername'), 'Length:', L);
-      }catch(e){
-        console.log('Error with path:', e);
-      }
-    });
-    
-    // Handle flower groups - target all paths inside them
-    const flowerSelectors = [
-      'g[vectornator\\:layername="flower1"] path',
-      'g[vectornator\\:layername="flower2"] path', 
-      'g[vectornator\\:layername="flower3"] path'
-    ];
-    
-    console.log('Looking for flower groups with these selectors:', flowerSelectors);
-    
-    // Debug: Check what we actually find
-    const flowerPaths = document.querySelectorAll(flowerSelectors.join(','));
-    console.log('Found flower paths:', flowerPaths.length);
-    
-    flowerPaths.forEach((p, index) => {
-      try{
-        const L = p.getTotalLength();
-        p.style.strokeDasharray  = L;
-        p.style.strokeDashoffset = L;
-        console.log('Found flower path:', p.getAttribute('vectornator:layername'), 'Length:', L);
-        
-        // Check if CSS is being applied
-        const computedStyle = window.getComputedStyle(p);
-        console.log('Path', index, 'CSS check:');
-        console.log('  stroke:', computedStyle.stroke);
-        console.log('  stroke-width:', computedStyle.strokeWidth);
-        console.log('  animation:', computedStyle.animation);
-      }catch(e){
-        console.log('Error with flower path:', e);
-      }
-    });
-    
-    // Also check if any paths have the flower layer names directly
-    console.log('Checking for paths with flower layer names directly...');
-    const directFlowerPaths = document.querySelectorAll('path[vectornator\\:layername="flower1"], path[vectornator\\:layername="flower2"], path[vectornator\\:layername="flower3"]');
-    console.log('Direct flower paths found:', directFlowerPaths.length);
-    
-    // Force remove stroke="none" from all paths we want to animate
-    console.log('Removing stroke="none" from paths...');
-    const allTargetPaths = document.querySelectorAll('path[vectornator\\:layername="stem1"], path[vectornator\\:layername="stem2"], path[vectornator\\:layername="stem3"], path[vectornator\\:layername="leaf1"], path[vectornator\\:layername="leaf2"], g[vectornator\\:layername="flower1"] path, g[vectornator\\:layername="flower2"] path, g[vectornator\\:layername="flower3"] path');
-    
-    allTargetPaths.forEach(p => {
-      if (p.getAttribute('stroke') === 'none') {
-        p.removeAttribute('stroke');
-        console.log('Removed stroke="none" from path:', p.getAttribute('vectornator:layername'));
-      }
-    });
-    
-    // Debug: Check if any paths exist at all
-    const allPaths = document.querySelectorAll('path');
-    console.log('Total paths found:', allPaths.length);
-    
-    // Check what attributes the first few paths actually have
-    console.log('First 3 paths and their attributes:');
-    allPaths.forEach((p, index) => {
-      if (index < 3) {
-        console.log('Path', index, 'attributes:', p.attributes);
-        console.log('Path', index, 'all attributes:');
-        for (let attr of p.attributes) {
-          console.log('  ', attr.name, '=', attr.value);
+        if (borderLine) {
+          borderLine.style.height = '100vh';
         }
-      }
-    });
-    
-    // Look for any attribute that might contain layer info
-    allPaths.forEach(p => {
-      const layerName = p.getAttribute('vectornator:layerName');
-      if (layerName) {
-        console.log('Path with layerName:', layerName);
-      }
+      }, 100);
     });
   </script>
 </body>

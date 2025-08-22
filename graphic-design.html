@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Graphic Design - Miriam Rehr</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="index-page">
+  <!-- Mobile Navigation Toggle -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <!-- Main Navigation with Alternating Menu Items -->
   <nav class="main-nav">
     <!-- Name on left side -->
-    <a href="index.html" class="nav-name">miriam rehr</a>
+    <a href="/index.html" class="nav-name">miriam rehr</a>
     
     <!-- Navigation items positioned around red line -->
     <a href="index.html" class="nav-item home">home</a>
@@ -18,8 +26,19 @@
     <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
     <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
     
-    <!-- Border Line -->
-    <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
+    <!-- Mobile Sub-Navigation -->
+    <div class="mobile-sub-nav">
+      <ul>
+        <li><a href="graphic-design.html" class="main-nav-item active">Graphic Design</a></li>
+        <li><a href="illustrations-graphics.html" class="sub-nav-item">Illustrations & Graphics</a></li>
+        <li><a href="ux-ui.html" class="sub-nav-item">UX/UI Projects</a></li>
+        <li><a href="desktop-app-design.html" class="sub-nav-item">Desktop App Design</a></li>
+        <li><a href="mobile-app-design.html" class="sub-nav-item">Mobile App Design</a></li>
+      </ul>
+    </div>
+    
+                  <!-- Border Line -->
+              <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
   </nav>
 
   <!-- Graphics Page Horizontal Navigation -->

@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Miriam Rehr</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="index-page">
+  <!-- Mobile Navigation Toggle -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <!-- Main Navigation with Alternating Menu Items -->
   <nav class="main-nav">
     <!-- Name on left side -->
-    <a href="index.html" class="nav-name">miriam rehr</a>
+    <a href="/index.html" class="nav-name">miriam rehr</a>
     
     <!-- Navigation items positioned around red line -->
     <a href="index.html" class="nav-item home">home</a>
@@ -17,6 +25,15 @@
     <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
     <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
     <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
+    
+    <!-- Mobile Sub-Navigation -->
+    <div class="mobile-sub-nav">
+      <ul>
+        <li><a href="contact.html" class="main-nav-item active">Contact</a></li>
+        <li><a href="about.html" class="sub-nav-item">About Me</a></li>
+        <li><a href="credentials-referrals.html" class="sub-nav-item">Credentials</a></li>
+      </ul>
+    </div>
     
                   <!-- Border Line -->
               <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>

@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>UX Design - Miriam Rehr</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UX/UI - Miriam Rehr</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="index-page">
+  <!-- Mobile Navigation Toggle -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
   <!-- Main Navigation with Alternating Menu Items -->
   <nav class="main-nav">
     <!-- Name on left side -->
-    <a href="index.html" class="nav-name">miriam rehr</a>
+    <a href="/index.html" class="nav-name">miriam rehr</a>
     
     <!-- Navigation items positioned around red line -->
     <a href="index.html" class="nav-item home">home</a>
@@ -17,6 +25,44 @@
     <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
     <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
     <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
+    
+    <!-- Mobile Sub-Navigation -->
+    <div class="mobile-sub-nav">
+      <ul>
+        <li><a href="index.html" class="main-nav-item">Home</a></li>
+        <li>
+          <a href="about.html" class="main-nav-item">About Me</a>
+          <ul class="sub-items">
+            <li><a href="credentials-referrals.html" class="sub-nav-item">Credentials & Referrals</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="ux-ui.html" class="main-nav-item active">UX/UI</a>
+          <ul class="sub-items">
+            <li><a href="desktop-app-design.html" class="sub-nav-item">Desktop App Design</a></li>
+            <li><a href="mobile-app-design.html" class="sub-nav-item">Mobile App Design</a></li>
+            <li><a href="graphic-design.html" class="sub-nav-item">Graphic Design</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="illustrations-graphics.html" class="main-nav-item">Graphics</a>
+          <ul class="sub-items">
+            <li><a href="graphic-design.html" class="sub-nav-item">Graphic Design</a></li>
+            <li><a href="desktop-app-design.html" class="sub-nav-item">Desktop App Design</a></li>
+            <li><a href="mobile-app-design.html" class="sub-nav-item">Mobile App Design</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="projects.html" class="main-nav-item">Apps I've Built</a>
+          <ul class="sub-items">
+            <li><a href="ux-ui.html" class="sub-nav-item">UX/UI Projects</a></li>
+            <li><a href="illustrations-graphics.html" class="sub-nav-item">Graphics & Illustrations</a></li>
+            <li><a href="desktop-app-design.html" class="sub-nav-item">Desktop Apps</a></li>
+            <li><a href="mobile-app-design.html" class="sub-nav-item">Mobile Apps</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
     
                   <!-- Border Line -->
               <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
@@ -80,17 +126,50 @@
   </section>
 
   <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
+    // Mobile Navigation Toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const mainNav = document.querySelector('.main-nav');
 
-    document.querySelectorAll('h1, h2').forEach(header => {
-      observer.observe(header);
+    mobileNavToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      mobileNavToggle.classList.toggle('active');
+    });
+
+    // Close mobile nav when clicking on a link
+    document.querySelectorAll('.nav-item, .nav-name').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        mobileNavToggle.classList.remove('active');
+      });
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mainNav.contains(e.target) && !mobileNavToggle.contains(e.target)) {
+        mainNav.classList.remove('active');
+        mobileNavToggle.classList.remove('active');
+      }
+    });
+
+    // Mobile Sub-Navigation Expandable Functionality
+    document.querySelectorAll('.mobile-sub-nav .main-nav-item').forEach(mainItem => {
+      mainItem.addEventListener('click', (e) => {
+        // Check if this item has sub-items
+        const subItems = mainItem.parentElement.querySelector('.sub-items');
+        if (subItems) {
+          e.preventDefault(); // Prevent navigation temporarily
+          
+          // Toggle expanded state
+          mainItem.classList.toggle('expanded');
+          subItems.classList.toggle('expanded');
+          
+          // Navigate to the page after a short delay to show the expansion
+          setTimeout(() => {
+            window.location.href = mainItem.href;
+          }, 300);
+        }
+        // If no sub-items, just navigate normally
+      });
     });
 
     // Active link highlight for new navigation
@@ -113,11 +192,11 @@
     window.addEventListener('load', function() {
       setTimeout(() => {
         const borderLine = document.getElementById('borderLine');
-        borderLine.style.height = '100vh';
+        if (borderLine) {
+          borderLine.style.height = '100vh';
+        }
       }, 100);
     });
-
-
   </script>
 </body>
 </html> 
