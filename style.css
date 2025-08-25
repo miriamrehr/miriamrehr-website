@@ -141,6 +141,24 @@ body.index-page {
   color: #96BFE6 !important;
 }
 
+/* Dropdown container positioning - only affects mobile */
+.nav-item-container {
+  position: relative;
+}
+
+/* Desktop: Hide dropdowns completely */
+@media (min-width: 769px) {
+  .nav-dropdown {
+    display: none !important;
+  }
+}
+
+
+
+
+
+
+
 /* ========================================
    INDEX PAGE - HERO TEXT
    ======================================== */
@@ -873,6 +891,13 @@ p,
   max-width: 800px;
 }
 
+/* NOONOO Colors specific positioning */
+.project-image.noonoocolors {
+  text-align: center;
+  margin: 40px 0 40px 300px;
+  max-width: 800px;
+}
+
 /* Popup Tiles Container */
 .popup-tiles-container {
   display: grid;
@@ -971,7 +996,7 @@ p,
 
 .project-image-logo {
   text-align: center;
-  margin: 0 auto;
+  margin: 0 0 0 400px;
   max-width: 400px;
 }
 
@@ -986,7 +1011,7 @@ p,
 
 .project-image-colorprofile {
   text-align: left;
-  margin: 0 0 0 200px;
+  margin: 0 0 0 350px;
   max-width: 500px;
 }
 
@@ -1146,7 +1171,7 @@ p,
   width: 100%;
   max-width: 800px;
   height: 600px;
-  margin: -6rem 0 2rem 100px;
+  margin: -8rem 0 2rem 200px;
   overflow: hidden;
 }
 
@@ -1607,6 +1632,37 @@ p,
     margin: 40px 20px;
     max-width: 100%;
   }
+
+  /* Mobile dropdown adjustments */
+  .nav-dropdown {
+    position: static;
+    border: none;
+    box-shadow: none;
+    margin-top: 10px;
+    background: transparent;
+    display: none;
+    padding-left: 0;
+  }
+
+  .nav-dropdown.show {
+    display: block !important;
+  }
+
+  .nav-dropdown a {
+    padding: 8px 0;
+    border-bottom: none;
+    font-size: 0.85rem;
+    color: #666;
+    display: block;
+    text-decoration: none;
+  }
+
+  .nav-dropdown a:hover {
+    background-color: transparent;
+    color: #A90636;
+  }
+
+
 
   .showcase-img-homepage,
   .showcase-img-projects {

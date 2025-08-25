@@ -21,21 +21,35 @@
     
     <!-- Navigation items positioned around red line -->
     <a href="index.html" class="nav-item home">home</a>
-    <a href="about.html" class="nav-item about">about</a>
-    <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
-    <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
-                  <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
     
-    <!-- Mobile Sub-Navigation -->
-    <div class="mobile-sub-nav">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="#" class="toggle-item" data-section="about">About Me ▼</a></li>
-        <li><a href="#" class="toggle-item" data-section="ux">UX/UI ▼</a></li>
-        <li><a href="#" class="toggle-item" data-section="graphics">Graphics ▼</a></li>
-        <li><a href="#" class="toggle-item" data-section="apps">Apps I've Built ▼</a></li>
-      </ul>
+    <!-- About with dropdown -->
+    <div class="nav-item-container">
+      <a href="about.html" class="nav-item about">about</a>
+      <div class="nav-dropdown">
+        <a href="credentials-referrals.html">Credentials & Referrals</a>
+      </div>
     </div>
+    
+    <!-- UX/UI with dropdown -->
+    <div class="nav-item-container">
+      <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
+      <div class="nav-dropdown">
+        <a href="desktop-app-design.html">Desktop App Design</a>
+        <a href="mobile-app-design.html">Mobile App Design</a>
+        <a href="graphic-design.html">Graphic Design</a>
+      </div>
+    </div>
+    
+    <!-- Graphics with dropdown -->
+    <div class="nav-item-container">
+      <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
+      <div class="nav-dropdown">
+        <a href="graphic-design.html">Graphic Design</a>
+        <a href="illustrations.html">Illustrations</a>
+      </div>
+    </div>
+    
+    <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
     
                   <!-- Border Line -->
               <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
@@ -109,6 +123,8 @@
   </div>
 
   <script>
+    console.log('Script starting...');
+    
     // Mobile Navigation Toggle
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
     const mainNav = document.querySelector('.main-nav');
@@ -118,8 +134,24 @@
       mobileNavToggle.classList.toggle('active');
     });
 
-    // Close mobile nav when clicking on a link
-    document.querySelectorAll('.nav-item, .nav-name').forEach(link => {
+    // Close mobile nav when clicking on the name link only
+    document.querySelectorAll('.nav-name').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        mobileNavToggle.classList.remove('active');
+      });
+    });
+    
+    // Close mobile nav when clicking on dropdown links (but not main nav items)
+    document.querySelectorAll('.nav-dropdown a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+        mobileNavToggle.classList.remove('active');
+      });
+    });
+    
+    // Close mobile nav when clicking on home and apps links (direct navigation)
+    document.querySelectorAll('.nav-item.home, .nav-item.apps').forEach(link => {
       link.addEventListener('click', () => {
         mainNav.classList.remove('active');
         mobileNavToggle.classList.remove('active');
@@ -134,30 +166,58 @@
       }
     });
 
-    // Simple Mobile Sub-Navigation Toggle
-    document.querySelectorAll('.mobile-sub-nav .toggle-item').forEach(toggleItem => {
-      toggleItem.addEventListener('click', (e) => {
-        e.preventDefault();
+    // Mobile dropdown functionality - wait for DOM to be ready
+    function setupMobileDropdowns() {
+      console.log('Setting up mobile dropdowns...');
+      const containers = document.querySelectorAll('.nav-item-container');
+      console.log('Found containers:', containers.length);
+      
+      containers.forEach((container, index) => {
+        const navItem = container.querySelector('.nav-item');
+        const dropdown = container.querySelector('.nav-dropdown');
         
-        // Find the sub-items container
-        const subItems = toggleItem.nextElementSibling;
+        console.log(`Container ${index}:`, { navItem: navItem?.textContent, dropdown: !!dropdown });
         
-        // Toggle visibility by changing inline styles
-        if (subItems && subItems.classList.contains('sub-items')) {
-          if (subItems.style.display === 'none' || subItems.style.display === '') {
-            subItems.style.display = 'block';
-            subItems.style.visibility = 'visible';
-            subItems.style.height = 'auto';
-            subItems.style.overflow = 'visible';
-          } else {
-            subItems.style.display = 'none';
-            subItems.style.visibility = 'hidden';
-            subItems.style.height = '0';
-            subItems.style.overflow = 'hidden';
-          }
+        if (navItem && dropdown) {
+          navItem.addEventListener('click', (e) => {
+            // On mobile, toggle dropdown first
+            if (window.innerWidth <= 768) {
+              console.log('Mobile dropdown clicked:', navItem.textContent);
+              
+              // Close all other dropdowns first
+              document.querySelectorAll('.nav-dropdown.show').forEach(openDropdown => {
+                if (openDropdown !== dropdown) {
+                  openDropdown.classList.remove('show');
+                }
+              });
+              
+              // Toggle current dropdown
+              dropdown.classList.toggle('show');
+              console.log('Dropdown toggled:', dropdown.classList.contains('show'));
+              
+              // Prevent the click from bubbling up to close mobile nav
+              e.stopPropagation();
+              
+              // Prevent navigation so dropdown can be shown
+              e.preventDefault();
+              
+              // Keep mobile nav open so user can see the dropdown
+              // Mobile nav will only close when clicking on actual dropdown links
+            }
+            // On desktop, navigation works normally (no preventDefault)
+          });
         }
       });
-    });
+    }
+    
+    // Run setup when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupMobileDropdowns);
+    } else {
+      setupMobileDropdowns();
+    }
+
+
 
     // Active link highlight for new navigation
     let currentPage = window.location.pathname.split("/").pop();

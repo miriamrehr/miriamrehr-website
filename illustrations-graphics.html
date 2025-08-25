@@ -21,20 +21,37 @@
     
     <!-- Navigation items positioned around red line -->
     <a href="index.html" class="nav-item home">home</a>
-    <a href="about.html" class="nav-item about">about</a>
-    <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
-    <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
+    
+    <!-- About with dropdown -->
+    <div class="nav-item-container">
+      <a href="about.html" class="nav-item about">about</a>
+      <div class="nav-dropdown">
+        <a href="credentials-referrals.html">Credentials & Referrals</a>
+      </div>
+    </div>
+    
+    <!-- UX/UI with dropdown -->
+    <div class="nav-item-container">
+      <a href="ux-ui.html" class="nav-item ux-ui">UX/UI</a>
+      <div class="nav-dropdown">
+        <a href="desktop-app-design.html">Desktop App Design</a>
+        <a href="ux-ui.html">Web Design</a>
+        <a href="mobile-app-design.html">Mobile App Design</a>
+      </div>
+    </div>
+    
+    <!-- Graphics with dropdown -->
+    <div class="nav-item-container">
+      <a href="illustrations-graphics.html" class="nav-item graphics">graphics</a>
+      <div class="nav-dropdown">
+        <a href="graphic-design.html">Graphic Design</a>
+        <a href="illustrations.html">Illustrations</a>
+      </div>
+    </div>
+    
     <a href="projects.html" class="nav-item apps">apps&#10;i've built</a>
     
-    <!-- Mobile Sub-Navigation -->
-    <div class="mobile-sub-nav">
-      <ul>
-        <li><a href="illustrations-graphics.html" class="main-nav-item active">Illustrations & Graphics</a></li>
-        <li><a href="graphic-design.html" class="sub-nav-item">Graphic Design</a></li>
-        <li><a href="desktop-app-design.html" class="sub-nav-item">Desktop App Design</a></li>
-        <li><a href="mobile-app-design.html" class="sub-nav-item">Mobile App Design</a></li>
-      </ul>
-    </div>
+
     
                   <!-- Border Line -->
               <div id="borderLine" style="position: fixed; top: 0; left: 250px; width: 5px; height: 0; background: #A90636; z-index: 999999; transition: height 1s ease-out;"></div>
@@ -83,6 +100,45 @@
       if (!mainNav.contains(e.target) && !mobileNavToggle.contains(e.target)) {
         mainNav.classList.remove('active');
         mobileNavToggle.classList.remove('active');
+      }
+    });
+    
+    // Mobile dropdown functionality
+    console.log('Setting up mobile dropdowns...');
+    const containers = document.querySelectorAll('.nav-item-container');
+    console.log('Found containers:', containers.length);
+    
+    containers.forEach((container, index) => {
+      const navItem = container.querySelector('.nav-item');
+      const dropdown = container.querySelector('.nav-dropdown');
+      
+      console.log(`Container ${index}:`, { navItem: navItem?.textContent, dropdown: !!dropdown });
+      
+      if (navItem && dropdown) {
+        navItem.addEventListener('click', (e) => {
+          // On mobile, show dropdown but don't prevent navigation
+          if (window.innerWidth <= 768) {
+            console.log('Mobile dropdown clicked:', navItem.textContent);
+            
+            // Close all other dropdowns first
+            document.querySelectorAll('.nav-dropdown.show').forEach(openDropdown => {
+              if (openDropdown !== dropdown) {
+                openDropdown.classList.remove('show');
+              }
+            });
+            
+            // Show current dropdown
+            dropdown.classList.add('show');
+            console.log('Dropdown shown:', dropdown.classList.contains('show'));
+            
+            // Prevent the click from bubbling up to close mobile nav
+            e.stopPropagation();
+            
+            // Temporarily prevent navigation to test dropdown
+            e.preventDefault();
+          }
+          // On desktop, navigation works normally (no preventDefault)
+        });
       }
     });
 
